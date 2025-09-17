@@ -17,7 +17,7 @@
             <meta name="viewport" content="width=device-width,
                 initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
             <style>
-                #map_d0a23bd503b02b85e85f90812bf22d39 {
+                #map_bb5db55c3e433184dc50a9af9488c8da {
                     position: relative;
                     width: 100.0%;
                     height: 100.0%;
@@ -82,18 +82,33 @@
     
     
     <div id="mapLegend" style="
-    position:fixed; right:12px; bottom:56px; z-index:9998;
-    background:rgba(255,255,255,.96); border:1px solid #d0d0d0;
-    border-radius:8px; padding:8px 10px; font-size:12px; box-shadow:0 1px 6px rgba(0,0,0,.12);
-    ">
-    ...
+      position:fixed; right:12px; bottom:56px; z-index:9998;
+      background:rgba(255,255,255,.96); border:1px solid #d0d0d0;
+      border-radius:8px; padding:8px 10px; font-size:12px; box-shadow:0 1px 6px rgba(0,0,0,.12);
+      min-width:148px;">
+      <div style="font-weight:700;margin-bottom:4px">圖例</div>
+      <div style="display:flex;align-items:center;gap:8px;margin:3px 0;">
+        <span style="width:14px;height:14px;border-radius:3px;background:#8e24aa;border:1px solid #8e24aa;display:inline-block;"></span> 太空/火箭
+      </div>
+      <div style="display:flex;align-items:center;gap:8px;margin:3px 0;">
+        <span style="width:14px;height:14px;border-radius:3px;background:#d32f2f;border:1px solid #d32f2f;display:inline-block;"></span> 禁航
+      </div>
+      <div style="display:flex;align-items:center;gap:8px;margin:3px 0;">
+        <span style="width:14px;height:14px;border-radius:3px;background:#1976d2;border:1px solid #1976d2;display:inline-block;"></span> 限制
+      </div>
+      <div style="display:flex;align-items:center;gap:8px;margin:3px 0;">
+        <span style="width:14px;height:14px;border-radius:3px;background:#f57c00;border:1px solid #f57c00;display:inline-block;"></span> 危險
+      </div>
+      <div style="display:flex;align-items:center;gap:8px;margin:3px 0;">
+        <span style="width:14px;height:14px;border-radius:3px;background:#2e7d32;border:1px solid #2e7d32;display:inline-block;"></span> 一般
+      </div>
     </div>
     <div id="tsBadge" style="
-    position:fixed; right:12px; bottom:12px; z-index:9998;
-    background:rgba(255,255,255,.96); border:1px solid #d0d0d0;
-    border-radius:8px; padding:6px 8px; font-size:11px; box-shadow:0 1px 6px rgba(0,0,0,.12);
+      position:fixed; right:12px; bottom:12px; z-index:9998;
+      background:rgba(255,255,255,.96); border:1px solid #d0d0d0;
+      border-radius:8px; padding:6px 8px; font-size:11px; box-shadow:0 1px 6px rgba(0,0,0,.12);
     ">
-    搜尋時間：2025-09-18 00:44 (CST)
+      搜尋時間：2025-09-18 00:45 (CST)
     </div>
     
     
@@ -192,7 +207,9 @@
 
         <div class="row" style="margin-top:4px;">
           <label><input type="checkbox" id="showTs" checked> 顯示搜尋時間</label>
+          <label><input type="checkbox" id="showLegend" checked> 顯示圖例</label>
         </div>
+
 
         <div class="row" style="margin-top:10px;">
           <button class="notam-btn" onclick="applyFilter()">套用</button>
@@ -206,7 +223,7 @@
     <button id="miniBtn" class="notam-btn mini-btn" style="display:none;">開啟篩選</button>
     
     
-            <div class="folium-map" id="map_d0a23bd503b02b85e85f90812bf22d39" ></div>
+            <div class="folium-map" id="map_bb5db55c3e433184dc50a9af9488c8da" ></div>
         
 </body>
 <script>
@@ -215,117 +232,117 @@
     
     (function(){
       function boot(){
-        const map = map_d0a23bd503b02b85e85f90812bf22d39;
+        const map = map_bb5db55c3e433184dc50a9af9488c8da;
         if(!map) return setTimeout(boot, 80);
 
         window.NOTAM_REG = [];
-        NOTAM_REG.push({code:'ZPKM',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:null,layerName:'feature_group_b08cb237a48269e5d6c2cf92d4362832',layer:null,span:0.000,sea:'UNK',lineOnly:false,region:'ASIA'});
-NOTAM_REG.push({code:'ZGGG',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:null,layerName:'feature_group_41d8326d29629965263047ee575fdb2c',layer:null,span:0.000,sea:'UNK',lineOnly:false,region:'ASIA'});
-NOTAM_REG.push({code:'ZYSH',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:null,layerName:'feature_group_544ba8387bd749a293f93428b4e66137',layer:null,span:0.000,sea:'UNK',lineOnly:false,region:'ASIA'});
-NOTAM_REG.push({code:'ZSHA',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:null,layerName:'feature_group_58ddf748b2870a7dddfcf1fa665a0490',layer:null,span:0.000,sea:'UNK',lineOnly:false,region:'ASIA'});
-NOTAM_REG.push({code:'ZUUU',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:null,layerName:'feature_group_5ffafdb70377bb8a71dca01032b964c1',layer:null,span:0.000,sea:'UNK',lineOnly:false,region:'ASIA'});
-NOTAM_REG.push({code:'ZBBB',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:null,layerName:'feature_group_c31431c901bb5e71e89f8076650fdee0',layer:null,span:0.000,sea:'UNK',lineOnly:false,region:'ASIA'});
-NOTAM_REG.push({code:'ZWWW',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:null,layerName:'feature_group_76b82ebe3dbcb2e025920b4847a5ddef',layer:null,span:0.000,sea:'UNK',lineOnly:false,region:'ASIA'});
-NOTAM_REG.push({code:'ZLHW',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:null,layerName:'feature_group_2b6ade6208d927638904f60a87c1ab74',layer:null,span:0.000,sea:'UNK',lineOnly:false,region:'ASIA'});
-NOTAM_REG.push({code:'ZHHH',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:null,layerName:'feature_group_25c2a1dfa7639043052a391478d457ad',layer:null,span:0.000,sea:'UNK',lineOnly:false,region:'ASIA'});
-NOTAM_REG.push({code:'ZJSA',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:null,layerName:'feature_group_04b973aa82974c492e25dff13e689041',layer:null,span:0.000,sea:'UNK',lineOnly:false,region:'ASIA'});
-NOTAM_REG.push({code:'ZBPE',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:null,layerName:'feature_group_add98976a91306132c0e0295b05efe88',layer:null,span:0.000,sea:'UNK',lineOnly:false,region:'ASIA'});
-NOTAM_REG.push({code:'ZWUQ',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:null,layerName:'feature_group_b467871072364df51141f2d84e18f7dd',layer:null,span:0.000,sea:'UNK',lineOnly:false,region:'ASIA'});
-NOTAM_REG.push({code:'EGTT',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:null,layerName:'feature_group_669fbd2fbdc4020044ec5abdcc468ded',layer:null,span:0.000,sea:'UNK',lineOnly:false,region:'EUROPE'});
-NOTAM_REG.push({code:'EGPX',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:null,layerName:'feature_group_1282d0feceaf782b48ae7ba1f4fcbb5d',layer:null,span:0.000,sea:'UNK',lineOnly:false,region:'EUROPE'});
-NOTAM_REG.push({code:'EGGX',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:null,layerName:'feature_group_a9596a53d1ea02fc2fabe8b5e1e0e84d',layer:null,span:0.000,sea:'UNK',lineOnly:false,region:'EUROPE'});
-NOTAM_REG.push({code:'EISN',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:null,layerName:'feature_group_e778cbeae682f54715c89552b0ebc2ed',layer:null,span:0.000,sea:'UNK',lineOnly:false,region:'EUROPE'});
-NOTAM_REG.push({code:'EHAA',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:null,layerName:'feature_group_b88d21909fd55c1d32877c6f20015d5d',layer:null,span:0.000,sea:'UNK',lineOnly:false,region:'EUROPE'});
-NOTAM_REG.push({code:'EBBU',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:null,layerName:'feature_group_e4367acd060aaebbb3d427613c479339',layer:null,span:0.000,sea:'UNK',lineOnly:false,region:'EUROPE'});
-NOTAM_REG.push({code:'EDGG',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:null,layerName:'feature_group_4330d934438ea5777b9994af97263a7f',layer:null,span:0.000,sea:'UNK',lineOnly:false,region:'EUROPE'});
-NOTAM_REG.push({code:'EDWW',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:null,layerName:'feature_group_d1a17a110b3415edd4f6dbe5c5b0b3d0',layer:null,span:0.000,sea:'UNK',lineOnly:false,region:'EUROPE'});
-NOTAM_REG.push({code:'EDYY',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:null,layerName:'feature_group_0eec7358c444310b4be1b551940750d9',layer:null,span:0.000,sea:'UNK',lineOnly:false,region:'EUROPE'});
-NOTAM_REG.push({code:'EFIN',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:null,layerName:'feature_group_15c50be9bfcd1908c9fd044989e3f832',layer:null,span:0.000,sea:'UNK',lineOnly:false,region:'EUROPE'});
-NOTAM_REG.push({code:'EDUU',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:null,layerName:'feature_group_91390d2483ac4b0327e526582fab3f08',layer:null,span:0.000,sea:'UNK',lineOnly:false,region:'EUROPE'});
-NOTAM_REG.push({code:'EDMM',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:null,layerName:'feature_group_650b514cde2092957201dd54e9908e3f',layer:null,span:0.000,sea:'UNK',lineOnly:false,region:'EUROPE'});
-NOTAM_REG.push({code:'EKDK',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:null,layerName:'feature_group_0c695baaa78e0831b8076c1123b3bb77',layer:null,span:0.000,sea:'UNK',lineOnly:false,region:'EUROPE'});
-NOTAM_REG.push({code:'ESAA',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:null,layerName:'feature_group_d685575c23855b4c692e979db69c30f9',layer:null,span:0.000,sea:'UNK',lineOnly:false,region:'EUROPE'});
-NOTAM_REG.push({code:'EETT',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:null,layerName:'feature_group_6c43aa2eaf5d4f44471e63abcfe0023f',layer:null,span:0.000,sea:'UNK',lineOnly:false,region:'EUROPE'});
-NOTAM_REG.push({code:'ENOR',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:null,layerName:'feature_group_d0d2ea3360b63e3a778d047573ec6f60',layer:null,span:0.000,sea:'UNK',lineOnly:false,region:'EUROPE'});
-NOTAM_REG.push({code:'EVRR',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:null,layerName:'feature_group_d5c0a5c3ae3655c77d4003ec570908a1',layer:null,span:0.000,sea:'UNK',lineOnly:false,region:'EUROPE'});
-NOTAM_REG.push({code:'EYVL',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:null,layerName:'feature_group_8df8ddba2cbfa6a5440eeb5dc782b802',layer:null,span:0.000,sea:'UNK',lineOnly:false,region:'EUROPE'});
-NOTAM_REG.push({code:'LFFF',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:null,layerName:'feature_group_77b43e8f6fb39c6f83a79fa714512062',layer:null,span:0.000,sea:'UNK',lineOnly:false,region:'EUROPE'});
-NOTAM_REG.push({code:'LFEE',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:null,layerName:'feature_group_aa6abe0f245c52f4c8abc9035a1dc75a',layer:null,span:0.000,sea:'UNK',lineOnly:false,region:'EUROPE'});
-NOTAM_REG.push({code:'LFMM',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:null,layerName:'feature_group_cf8bb5c2ccb6aabc3d3e62e454b1427f',layer:null,span:0.000,sea:'UNK',lineOnly:false,region:'EUROPE'});
-NOTAM_REG.push({code:'LFRR',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:null,layerName:'feature_group_fdb6fc1a23f17afb0d20dfdc68c330dd',layer:null,span:0.000,sea:'UNK',lineOnly:false,region:'EUROPE'});
-NOTAM_REG.push({code:'LECM',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:null,layerName:'feature_group_ac63e61f191ff89a97b9842a6ef4bc86',layer:null,span:0.000,sea:'UNK',lineOnly:false,region:'EUROPE'});
-NOTAM_REG.push({code:'LFBB',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:null,layerName:'feature_group_ccf14cec2116cbe4700632b7292c3d8c',layer:null,span:0.000,sea:'UNK',lineOnly:false,region:'EUROPE'});
-NOTAM_REG.push({code:'LECB',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:null,layerName:'feature_group_b036392ab8c705790be16803799be471',layer:null,span:0.000,sea:'UNK',lineOnly:false,region:'EUROPE'});
-NOTAM_REG.push({code:'GCCC',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:null,layerName:'feature_group_85bfda50b8c54bcb4ce619a2a52d4f3f',layer:null,span:0.000,sea:'UNK',lineOnly:false,region:'EUROPE'});
-NOTAM_REG.push({code:'LPPC',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:null,layerName:'feature_group_42eb0b3aca8a05d73907f369ac2fd623',layer:null,span:0.000,sea:'UNK',lineOnly:false,region:'EUROPE'});
-NOTAM_REG.push({code:'LPPO',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:null,layerName:'feature_group_c018e2be07b07113468966fedc8a742b',layer:null,span:0.000,sea:'UNK',lineOnly:false,region:'EUROPE'});
-NOTAM_REG.push({code:'EPWW',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:null,layerName:'feature_group_2781b770489a5044f83d7b1f4ff965d2',layer:null,span:0.000,sea:'UNK',lineOnly:false,region:'EUROPE'});
-NOTAM_REG.push({code:'LOVV',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:null,layerName:'feature_group_0a8c01827f8437d08f2c2eb82dc0dcc6',layer:null,span:0.000,sea:'UNK',lineOnly:false,region:'EUROPE'});
-NOTAM_REG.push({code:'LKAA',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:null,layerName:'feature_group_f7e9d9180372e06225fd2559c026a578',layer:null,span:0.000,sea:'UNK',lineOnly:false,region:'EUROPE'});
-NOTAM_REG.push({code:'LHCC',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:null,layerName:'feature_group_ab8a1da1582d012df740b08929754363',layer:null,span:0.000,sea:'UNK',lineOnly:false,region:'EUROPE'});
-NOTAM_REG.push({code:'LBSR',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:null,layerName:'feature_group_8fddff36dfc58adbe415dd9d4f804985',layer:null,span:0.000,sea:'UNK',lineOnly:false,region:'EUROPE'});
-NOTAM_REG.push({code:'LDZO',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:null,layerName:'feature_group_33bad06cc1f85d19d788bf15ce053eaa',layer:null,span:0.000,sea:'UNK',lineOnly:false,region:'EUROPE'});
-NOTAM_REG.push({code:'LIRR',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:null,layerName:'feature_group_d4b9944dff41dde8ba44bf7835db9303',layer:null,span:0.000,sea:'UNK',lineOnly:false,region:'EUROPE'});
-NOTAM_REG.push({code:'LIMM',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:null,layerName:'feature_group_816c45b9b661c1f5d1c06ec75c4eee73',layer:null,span:0.000,sea:'UNK',lineOnly:false,region:'EUROPE'});
-NOTAM_REG.push({code:'LMMM',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:null,layerName:'feature_group_458adbddd9d1242202cc4e76cce0028d',layer:null,span:0.000,sea:'UNK',lineOnly:false,region:'EUROPE'});
-NOTAM_REG.push({code:'LCCC',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:null,layerName:'feature_group_d3f06183c731bf6cc55b4ce96db8d582',layer:null,span:0.000,sea:'UNK',lineOnly:false,region:'EUROPE'});
-NOTAM_REG.push({code:'KZAB',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:null,layerName:'feature_group_7f591f6bc90866802ebb296804560364',layer:null,span:0.000,sea:'UNK',lineOnly:false,region:'USA'});
-NOTAM_REG.push({code:'KZAU',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:null,layerName:'feature_group_46b44e67949a247f555baae0d5d5a4d3',layer:null,span:0.000,sea:'UNK',lineOnly:false,region:'USA'});
-NOTAM_REG.push({code:'KZBW',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:null,layerName:'feature_group_f209d0c6c3da6f9fba356ecfaf97b205',layer:null,span:0.000,sea:'UNK',lineOnly:false,region:'USA'});
-NOTAM_REG.push({code:'KZDC',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:null,layerName:'feature_group_fa6d05c024931e3a4a64ebb1da21c9ea',layer:null,span:0.000,sea:'UNK',lineOnly:false,region:'USA'});
-NOTAM_REG.push({code:'KZDV',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:null,layerName:'feature_group_8d6c4a0cd893d7ffd1e186c79e452118',layer:null,span:0.000,sea:'UNK',lineOnly:false,region:'USA'});
-NOTAM_REG.push({code:'KZFW',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:null,layerName:'feature_group_a4641586edecf936a8198702df6a20fa',layer:null,span:0.000,sea:'UNK',lineOnly:false,region:'USA'});
-NOTAM_REG.push({code:'KZID',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:null,layerName:'feature_group_6ec92ea3434aa8477861a4ef5ac3ff29',layer:null,span:0.000,sea:'UNK',lineOnly:false,region:'USA'});
-NOTAM_REG.push({code:'KZHU',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:null,layerName:'feature_group_39bd0d7b989536d788fbb91d5844055b',layer:null,span:0.000,sea:'UNK',lineOnly:false,region:'USA'});
-NOTAM_REG.push({code:'KZJX',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:null,layerName:'feature_group_ff1d9e71f772621a7935dd5a5b7201ea',layer:null,span:0.000,sea:'UNK',lineOnly:false,region:'USA'});
-NOTAM_REG.push({code:'KZKC',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:null,layerName:'feature_group_2c294a3fef4d27b1970c53a3e3a3c452',layer:null,span:0.000,sea:'UNK',lineOnly:false,region:'USA'});
-NOTAM_REG.push({code:'KZLA',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:null,layerName:'feature_group_76383f40f3ddfb93963a141d58418465',layer:null,span:0.000,sea:'UNK',lineOnly:false,region:'USA'});
-NOTAM_REG.push({code:'KZLC',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:null,layerName:'feature_group_0610b5aa8382e3c5d888756711991a80',layer:null,span:0.000,sea:'UNK',lineOnly:false,region:'USA'});
-NOTAM_REG.push({code:'KZMA',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:null,layerName:'feature_group_85f0c529f68ea8e86479ac6bbf573d34',layer:null,span:0.000,sea:'UNK',lineOnly:false,region:'USA'});
-NOTAM_REG.push({code:'KZME',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:null,layerName:'feature_group_4cff22d5ebbbff45bc896008046b3ac5',layer:null,span:0.000,sea:'UNK',lineOnly:false,region:'USA'});
-NOTAM_REG.push({code:'KZMP',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:null,layerName:'feature_group_068b7d6f1bbc0ee093accd7492b3d91d',layer:null,span:0.000,sea:'UNK',lineOnly:false,region:'USA'});
-NOTAM_REG.push({code:'KZNY',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:null,layerName:'feature_group_ffbacb9e0e3efe97db82b6cd07f3c3ae',layer:null,span:0.000,sea:'UNK',lineOnly:false,region:'USA'});
-NOTAM_REG.push({code:'KZSE',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:null,layerName:'feature_group_e28b902afc6e9eca4631efda0e424bd1',layer:null,span:0.000,sea:'UNK',lineOnly:false,region:'USA'});
-NOTAM_REG.push({code:'KZOB',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:null,layerName:'feature_group_4d100a35596fb4628e0acd8e858c54d8',layer:null,span:0.000,sea:'UNK',lineOnly:false,region:'USA'});
-NOTAM_REG.push({code:'KZAK',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:null,layerName:'feature_group_92cadfcfa26d711adfd46c6f5113a258',layer:null,span:0.000,sea:'UNK',lineOnly:false,region:'OCEANIC'});
-NOTAM_REG.push({code:'KZTL',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:null,layerName:'feature_group_37b8f2b01795842c72104eec3cab8ed2',layer:null,span:0.000,sea:'UNK',lineOnly:false,region:'USA'});
-NOTAM_REG.push({code:'KZWY',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:null,layerName:'feature_group_10a0d63c4ca715ebd4aa866b08d99abf',layer:null,span:0.000,sea:'UNK',lineOnly:false,region:'USA'});
-NOTAM_REG.push({code:'PAZA',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:null,layerName:'feature_group_563c73d4ee56276763c66a136146bb53',layer:null,span:0.000,sea:'UNK',lineOnly:false,region:'OCEANIC'});
-NOTAM_REG.push({code:'UUWV',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:null,layerName:'feature_group_a62d425be4122711570e754cce255208',layer:null,span:0.000,sea:'UNK',lineOnly:false,region:'RUSSIA'});
-NOTAM_REG.push({code:'PHZH',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:null,layerName:'feature_group_7da034947f6024b957fd01d0f4a4c9bd',layer:null,span:0.000,sea:'UNK',lineOnly:false,region:'OCEANIC'});
-NOTAM_REG.push({code:'ULLL',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:null,layerName:'feature_group_72510e580fc76a5ab0a00efdd50593de',layer:null,span:0.000,sea:'UNK',lineOnly:false,region:'RUSSIA'});
-NOTAM_REG.push({code:'UWWW',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:null,layerName:'feature_group_79145534000de282efdc82cb3a48901b',layer:null,span:0.000,sea:'UNK',lineOnly:false,region:'RUSSIA'});
-NOTAM_REG.push({code:'UNNT',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:null,layerName:'feature_group_906240a111f5fdf9032382616dcd4e8d',layer:null,span:0.000,sea:'UNK',lineOnly:false,region:'RUSSIA'});
-NOTAM_REG.push({code:'URRV',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:null,layerName:'feature_group_2c1b41e6a7e60295c7075ac2eb3958f1',layer:null,span:0.000,sea:'UNK',lineOnly:false,region:'RUSSIA'});
-NOTAM_REG.push({code:'USSV',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:null,layerName:'feature_group_3f90bd925a75633b6a81757c1ab7c2b4',layer:null,span:0.000,sea:'UNK',lineOnly:false,region:'RUSSIA'});
-NOTAM_REG.push({code:'UNKL',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:null,layerName:'feature_group_d1e20307698d8011759d39043a77a11f',layer:null,span:0.000,sea:'UNK',lineOnly:false,region:'RUSSIA'});
-NOTAM_REG.push({code:'UIII',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:null,layerName:'feature_group_1020ec0a38cf5c690f4b000de3fee880',layer:null,span:0.000,sea:'UNK',lineOnly:false,region:'RUSSIA'});
-NOTAM_REG.push({code:'UHMM',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:null,layerName:'feature_group_088c06f1c56f9a2e46380c77b22cd312',layer:null,span:0.000,sea:'UNK',lineOnly:false,region:'RUSSIA'});
-NOTAM_REG.push({code:'UHHH',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:null,layerName:'feature_group_d705bf0888bece357a07ff6e99140381',layer:null,span:0.000,sea:'UNK',lineOnly:false,region:'RUSSIA'});
-NOTAM_REG.push({code:'UEEE',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:null,layerName:'feature_group_10cad2a907e6eb250e6c37fbb1dc125a',layer:null,span:0.000,sea:'UNK',lineOnly:false,region:'RUSSIA'});
-NOTAM_REG.push({code:'UHPP',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:null,layerName:'feature_group_31c9be3a36301fa9232c2cfa13d89491',layer:null,span:0.000,sea:'UNK',lineOnly:false,region:'RUSSIA'});
-NOTAM_REG.push({code:'YBBB',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:null,layerName:'feature_group_2641a2091acf54b5258c3f5a4f0c213e',layer:null,span:0.000,sea:'UNK',lineOnly:false,region:'OCEANIC'});
-NOTAM_REG.push({code:'YMMM',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:null,layerName:'feature_group_8b15197e5e3a342f24187cd10ab54f53',layer:null,span:0.000,sea:'UNK',lineOnly:false,region:'OCEANIC'});
-NOTAM_REG.push({code:'NFFF',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:null,layerName:'feature_group_9749c160b1a7e75198b27b9e60231a9f',layer:null,span:0.000,sea:'UNK',lineOnly:false,region:'OCEANIC'});
-NOTAM_REG.push({code:'AGGG',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:null,layerName:'feature_group_5483ef3189b9651b48558d2228f8e7ea',layer:null,span:0.000,sea:'UNK',lineOnly:false,region:'OCEANIC'});
-NOTAM_REG.push({code:'AYPM',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:null,layerName:'feature_group_139803a9bb48a447d22dfc4f4689f51e',layer:null,span:0.000,sea:'UNK',lineOnly:false,region:'OCEANIC'});
-NOTAM_REG.push({code:'NWWW',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:null,layerName:'feature_group_cb4dae91c8e71354abf2e59d0676f6b7',layer:null,span:0.000,sea:'UNK',lineOnly:false,region:'OCEANIC'});
-NOTAM_REG.push({code:'NTTT',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:null,layerName:'feature_group_2fa63b32c61d22e0f61d277f011b7273',layer:null,span:0.000,sea:'UNK',lineOnly:false,region:'OCEANIC'});
-NOTAM_REG.push({code:'NZZO',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:null,layerName:'feature_group_022284e2fd2e172000fcf34dc6520ff5',layer:null,span:0.000,sea:'UNK',lineOnly:false,region:'OCEANIC'});
-NOTAM_REG.push({code:'VABF',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:null,layerName:'feature_group_5a6a37b7a97da945a1acdccfef258798',layer:null,span:0.000,sea:'UNK',lineOnly:false,region:'OCEANIC'});
-NOTAM_REG.push({code:'VOMF',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:null,layerName:'feature_group_2ecb064908496ae7fd399148331c7da7',layer:null,span:0.000,sea:'UNK',lineOnly:false,region:'OCEANIC'});
-NOTAM_REG.push({code:'VCCF',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:null,layerName:'feature_group_a16763954850c0ecf9837f44ef5fe075',layer:null,span:0.000,sea:'UNK',lineOnly:false,region:'OCEANIC'});
-NOTAM_REG.push({code:'OOMS',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:null,layerName:'feature_group_229be2dbb43d31246ed449a676052055',layer:null,span:0.000,sea:'UNK',lineOnly:false,region:'OCEANIC'});
-NOTAM_REG.push({code:'OMAE',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:null,layerName:'feature_group_5bd4f2d34599058beff5e0d264e5c8bd',layer:null,span:0.000,sea:'UNK',lineOnly:false,region:'OCEANIC'});
-NOTAM_REG.push({code:'FSSS',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:null,layerName:'feature_group_5c0a95699d56c40774630eef1aaa8ca9',layer:null,span:0.000,sea:'UNK',lineOnly:false,region:'OCEANIC'});
-NOTAM_REG.push({code:'FMMM',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:null,layerName:'feature_group_4e425dcfe5e26f3afc920d5565e30aba',layer:null,span:0.000,sea:'UNK',lineOnly:false,region:'OCEANIC'});
-NOTAM_REG.push({code:'RCAA',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:null,layerName:'feature_group_20c3b01596fda96761eac0ff7abae18f',layer:null,span:0.000,sea:'UNK',lineOnly:false,region:'ASIA'});
-NOTAM_REG.push({code:'VHHK',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:null,layerName:'feature_group_a2c233ff092da3078284f2ced872c8f7',layer:null,span:0.000,sea:'UNK',lineOnly:false,region:'ASIA'});
-NOTAM_REG.push({code:'RJJJ',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:null,layerName:'feature_group_7229c672c2f5684ec99dfdecd93bd37e',layer:null,span:0.000,sea:'UNK',lineOnly:false,region:'ASIA'});
-NOTAM_REG.push({code:'RKRR',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:null,layerName:'feature_group_7541cb63cbb8d2293f7f5e251de41dc3',layer:null,span:0.000,sea:'UNK',lineOnly:false,region:'ASIA'});
-NOTAM_REG.push({code:'RPHI',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:null,layerName:'feature_group_7bdecee9380108ab3e841ebc9fedf10f',layer:null,span:0.000,sea:'UNK',lineOnly:false,region:'ASIA'});
-NOTAM_REG.push({code:'VVHM',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:null,layerName:'feature_group_2eb43c2147d2384c754f6a0101b4cbed',layer:null,span:0.000,sea:'UNK',lineOnly:false,region:'ASIA'});
-NOTAM_REG.push({code:'WMFC',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:null,layerName:'feature_group_02f8e6e16d93099cdbe3d341a7f1820d',layer:null,span:0.000,sea:'UNK',lineOnly:false,region:'ASIA'});
+        NOTAM_REG.push({code:'ZBBB',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:null,layerName:'feature_group_e853f2081ee6d1a50cd6425b45298fca',layer:null,span:0.000,sea:'UNK',lineOnly:false,region:'ASIA'});
+NOTAM_REG.push({code:'ZGGG',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:null,layerName:'feature_group_1f589e27663d0760eb10c0e43a8c054b',layer:null,span:0.000,sea:'UNK',lineOnly:false,region:'ASIA'});
+NOTAM_REG.push({code:'ZSHA',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:null,layerName:'feature_group_2dd3f7184d325222cb3acefe62908883',layer:null,span:0.000,sea:'UNK',lineOnly:false,region:'ASIA'});
+NOTAM_REG.push({code:'ZYSH',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:null,layerName:'feature_group_1e948f6b2e94292e5d1a488153829372',layer:null,span:0.000,sea:'UNK',lineOnly:false,region:'ASIA'});
+NOTAM_REG.push({code:'ZUUU',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:null,layerName:'feature_group_2a66a7cb7d00d67f7d98e0bf0c8e9ebc',layer:null,span:0.000,sea:'UNK',lineOnly:false,region:'ASIA'});
+NOTAM_REG.push({code:'ZPKM',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:null,layerName:'feature_group_71c1a608f666fbfe925be08b74f146d3',layer:null,span:0.000,sea:'UNK',lineOnly:false,region:'ASIA'});
+NOTAM_REG.push({code:'ZJSA',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:null,layerName:'feature_group_b074bf9e709ee134b28da710c5504354',layer:null,span:0.000,sea:'UNK',lineOnly:false,region:'ASIA'});
+NOTAM_REG.push({code:'ZLHW',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:null,layerName:'feature_group_5ad746b78e995d1a0963a599708f6173',layer:null,span:0.000,sea:'UNK',lineOnly:false,region:'ASIA'});
+NOTAM_REG.push({code:'ZWWW',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:null,layerName:'feature_group_f90ab83ee77b1a6b4f0028f665c542fd',layer:null,span:0.000,sea:'UNK',lineOnly:false,region:'ASIA'});
+NOTAM_REG.push({code:'ZHHH',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:null,layerName:'feature_group_71a1b81b6a757f5dd19d943b6bd8c2c5',layer:null,span:0.000,sea:'UNK',lineOnly:false,region:'ASIA'});
+NOTAM_REG.push({code:'ZWUQ',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:null,layerName:'feature_group_2884077ae73d0b03b510494243470f2c',layer:null,span:0.000,sea:'UNK',lineOnly:false,region:'ASIA'});
+NOTAM_REG.push({code:'ZBPE',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:null,layerName:'feature_group_d8ecdfe6f41f44be09cbac7324670bc4',layer:null,span:0.000,sea:'UNK',lineOnly:false,region:'ASIA'});
+NOTAM_REG.push({code:'EGTT',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:null,layerName:'feature_group_29f5f156cea7934adb19340ab82aa6fe',layer:null,span:0.000,sea:'UNK',lineOnly:false,region:'EUROPE'});
+NOTAM_REG.push({code:'EGPX',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:null,layerName:'feature_group_2dedc6a88fe8e1d34e79ab79b719028d',layer:null,span:0.000,sea:'UNK',lineOnly:false,region:'EUROPE'});
+NOTAM_REG.push({code:'EGGX',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:null,layerName:'feature_group_ce6b9f5f1fc6d8d1cb120229e10d23b9',layer:null,span:0.000,sea:'UNK',lineOnly:false,region:'EUROPE'});
+NOTAM_REG.push({code:'EISN',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:null,layerName:'feature_group_a4b714912b3dae52404a9849cb698a92',layer:null,span:0.000,sea:'UNK',lineOnly:false,region:'EUROPE'});
+NOTAM_REG.push({code:'EHAA',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:null,layerName:'feature_group_9fa2a5c2a03ceaa76d765da1904d6c6a',layer:null,span:0.000,sea:'UNK',lineOnly:false,region:'EUROPE'});
+NOTAM_REG.push({code:'EBBU',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:null,layerName:'feature_group_9bf6ae382966f49e21096e5c4c7b3543',layer:null,span:0.000,sea:'UNK',lineOnly:false,region:'EUROPE'});
+NOTAM_REG.push({code:'EDGG',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:null,layerName:'feature_group_084d258ef6c943fbfa9deb4d95fbd2c0',layer:null,span:0.000,sea:'UNK',lineOnly:false,region:'EUROPE'});
+NOTAM_REG.push({code:'EDWW',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:null,layerName:'feature_group_741f2365b7fae899819055c6c36a078d',layer:null,span:0.000,sea:'UNK',lineOnly:false,region:'EUROPE'});
+NOTAM_REG.push({code:'EDMM',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:null,layerName:'feature_group_2cbd46d9f0657496eae5d939ec9064a8',layer:null,span:0.000,sea:'UNK',lineOnly:false,region:'EUROPE'});
+NOTAM_REG.push({code:'EDYY',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:null,layerName:'feature_group_53a93f56fd3d8ebc5d539103a440968d',layer:null,span:0.000,sea:'UNK',lineOnly:false,region:'EUROPE'});
+NOTAM_REG.push({code:'EDUU',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:null,layerName:'feature_group_9ee8d52474c27bb34f8218bd6c92001f',layer:null,span:0.000,sea:'UNK',lineOnly:false,region:'EUROPE'});
+NOTAM_REG.push({code:'EFIN',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:null,layerName:'feature_group_79539b7a181cbfdf5111f4c09df46ea6',layer:null,span:0.000,sea:'UNK',lineOnly:false,region:'EUROPE'});
+NOTAM_REG.push({code:'EKDK',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:null,layerName:'feature_group_6daf3554ea430a97b86fd6287ef286bc',layer:null,span:0.000,sea:'UNK',lineOnly:false,region:'EUROPE'});
+NOTAM_REG.push({code:'EETT',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:null,layerName:'feature_group_5aac78368affa48b18b93f55e7f4f5c6',layer:null,span:0.000,sea:'UNK',lineOnly:false,region:'EUROPE'});
+NOTAM_REG.push({code:'ENOR',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:null,layerName:'feature_group_d4dc4ebea8fc52c8d143060ee362bb7f',layer:null,span:0.000,sea:'UNK',lineOnly:false,region:'EUROPE'});
+NOTAM_REG.push({code:'ESAA',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:null,layerName:'feature_group_320a8e0684e94e63643da486429277ef',layer:null,span:0.000,sea:'UNK',lineOnly:false,region:'EUROPE'});
+NOTAM_REG.push({code:'EVRR',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:null,layerName:'feature_group_80c03364faf1edbfc955d79e9f7f2a43',layer:null,span:0.000,sea:'UNK',lineOnly:false,region:'EUROPE'});
+NOTAM_REG.push({code:'EYVL',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:null,layerName:'feature_group_6bada2ee9f43aafad322ada408c8d081',layer:null,span:0.000,sea:'UNK',lineOnly:false,region:'EUROPE'});
+NOTAM_REG.push({code:'LFFF',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:null,layerName:'feature_group_f1c6778db9331458a742f9d57caaf324',layer:null,span:0.000,sea:'UNK',lineOnly:false,region:'EUROPE'});
+NOTAM_REG.push({code:'LFEE',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:null,layerName:'feature_group_0cfda4c3fec1e4c3ac9517900852281f',layer:null,span:0.000,sea:'UNK',lineOnly:false,region:'EUROPE'});
+NOTAM_REG.push({code:'LFBB',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:null,layerName:'feature_group_962ec16cce2bf1aa5febb685f546921b',layer:null,span:0.000,sea:'UNK',lineOnly:false,region:'EUROPE'});
+NOTAM_REG.push({code:'LFRR',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:null,layerName:'feature_group_a4e193fabc8d4114e03945fe138b4dcb',layer:null,span:0.000,sea:'UNK',lineOnly:false,region:'EUROPE'});
+NOTAM_REG.push({code:'LFMM',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:null,layerName:'feature_group_77db04ba26058884ba0a7c67a49065f8',layer:null,span:0.000,sea:'UNK',lineOnly:false,region:'EUROPE'});
+NOTAM_REG.push({code:'LECM',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:null,layerName:'feature_group_de842da1dc192e0bee436abd28c0d498',layer:null,span:0.000,sea:'UNK',lineOnly:false,region:'EUROPE'});
+NOTAM_REG.push({code:'GCCC',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:null,layerName:'feature_group_962fbc9bc9a86dab58c20906e128bd53',layer:null,span:0.000,sea:'UNK',lineOnly:false,region:'EUROPE'});
+NOTAM_REG.push({code:'LECB',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:null,layerName:'feature_group_f22e5a129b1fef01998f5caec91935dd',layer:null,span:0.000,sea:'UNK',lineOnly:false,region:'EUROPE'});
+NOTAM_REG.push({code:'LPPC',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:null,layerName:'feature_group_72d7830a45549355f2af04e1884ebc94',layer:null,span:0.000,sea:'UNK',lineOnly:false,region:'EUROPE'});
+NOTAM_REG.push({code:'EPWW',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:null,layerName:'feature_group_96144d5a4602289752f01f27479868d5',layer:null,span:0.000,sea:'UNK',lineOnly:false,region:'EUROPE'});
+NOTAM_REG.push({code:'LPPO',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:null,layerName:'feature_group_3b621b22c86abd750e8d332d26e43992',layer:null,span:0.000,sea:'UNK',lineOnly:false,region:'EUROPE'});
+NOTAM_REG.push({code:'LOVV',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:null,layerName:'feature_group_ef56330eeaf08a86c58770bb3b98f5c1',layer:null,span:0.000,sea:'UNK',lineOnly:false,region:'EUROPE'});
+NOTAM_REG.push({code:'LHCC',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:null,layerName:'feature_group_ee8af58559fdca48bd93423790fb959f',layer:null,span:0.000,sea:'UNK',lineOnly:false,region:'EUROPE'});
+NOTAM_REG.push({code:'LKAA',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:null,layerName:'feature_group_a5d24e2dc1050eae7c1e754e176629f5',layer:null,span:0.000,sea:'UNK',lineOnly:false,region:'EUROPE'});
+NOTAM_REG.push({code:'LDZO',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:null,layerName:'feature_group_a97b91b3c1ae775e107c4895aab74e09',layer:null,span:0.000,sea:'UNK',lineOnly:false,region:'EUROPE'});
+NOTAM_REG.push({code:'LIRR',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:null,layerName:'feature_group_e4ec6251e79b8099b949032b102a6bd7',layer:null,span:0.000,sea:'UNK',lineOnly:false,region:'EUROPE'});
+NOTAM_REG.push({code:'LBSR',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:null,layerName:'feature_group_72dcdcf38c201363e421155f84f4c3af',layer:null,span:0.000,sea:'UNK',lineOnly:false,region:'EUROPE'});
+NOTAM_REG.push({code:'LIMM',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:null,layerName:'feature_group_efc4e67cf48cb9165ef8bef6419d39ae',layer:null,span:0.000,sea:'UNK',lineOnly:false,region:'EUROPE'});
+NOTAM_REG.push({code:'LMMM',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:null,layerName:'feature_group_53edc8212b148aa1799454bcd6b438e6',layer:null,span:0.000,sea:'UNK',lineOnly:false,region:'EUROPE'});
+NOTAM_REG.push({code:'LCCC',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:null,layerName:'feature_group_dafe3c757a961fe8c6b45304dc00e836',layer:null,span:0.000,sea:'UNK',lineOnly:false,region:'EUROPE'});
+NOTAM_REG.push({code:'KZAB',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:null,layerName:'feature_group_5af9956a4a9969cf704c79508a337d3b',layer:null,span:0.000,sea:'UNK',lineOnly:false,region:'USA'});
+NOTAM_REG.push({code:'KZAU',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:null,layerName:'feature_group_e1e0662c8b5174912e368fb4b4764d58',layer:null,span:0.000,sea:'UNK',lineOnly:false,region:'USA'});
+NOTAM_REG.push({code:'KZBW',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:null,layerName:'feature_group_3f18750db65a0d4d3c2c33a62ac6f658',layer:null,span:0.000,sea:'UNK',lineOnly:false,region:'USA'});
+NOTAM_REG.push({code:'KZDC',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:null,layerName:'feature_group_1cadf55ec041a68ffda78afb5797274b',layer:null,span:0.000,sea:'UNK',lineOnly:false,region:'USA'});
+NOTAM_REG.push({code:'KZDV',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:null,layerName:'feature_group_cac06dd134bbf818af5174245c4a32dc',layer:null,span:0.000,sea:'UNK',lineOnly:false,region:'USA'});
+NOTAM_REG.push({code:'KZFW',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:null,layerName:'feature_group_46163770dd41d6eacdef975220095706',layer:null,span:0.000,sea:'UNK',lineOnly:false,region:'USA'});
+NOTAM_REG.push({code:'KZHU',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:null,layerName:'feature_group_80470ffc444625cbd578d25eca1d47b4',layer:null,span:0.000,sea:'UNK',lineOnly:false,region:'USA'});
+NOTAM_REG.push({code:'KZID',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:null,layerName:'feature_group_90ba2c2a453255689acb2ce1044daee0',layer:null,span:0.000,sea:'UNK',lineOnly:false,region:'USA'});
+NOTAM_REG.push({code:'KZJX',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:null,layerName:'feature_group_2759192f05a2ff70a292da8510373efd',layer:null,span:0.000,sea:'UNK',lineOnly:false,region:'USA'});
+NOTAM_REG.push({code:'KZKC',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:null,layerName:'feature_group_009aef26bb0f23ee52484ab7d9905b6e',layer:null,span:0.000,sea:'UNK',lineOnly:false,region:'USA'});
+NOTAM_REG.push({code:'KZLA',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:null,layerName:'feature_group_9c6925ac2d82c6a304e44372ee46b446',layer:null,span:0.000,sea:'UNK',lineOnly:false,region:'USA'});
+NOTAM_REG.push({code:'KZLC',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:null,layerName:'feature_group_4fbe142e7ed445319c198e3262561df0',layer:null,span:0.000,sea:'UNK',lineOnly:false,region:'USA'});
+NOTAM_REG.push({code:'KZMA',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:null,layerName:'feature_group_231fe9d5bb785d99b2234df8f2b84693',layer:null,span:0.000,sea:'UNK',lineOnly:false,region:'USA'});
+NOTAM_REG.push({code:'KZME',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:null,layerName:'feature_group_277995ad9a3bf9cfe5c41d9a0ddcac2b',layer:null,span:0.000,sea:'UNK',lineOnly:false,region:'USA'});
+NOTAM_REG.push({code:'KZMP',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:null,layerName:'feature_group_4ceedbbed7dad568f4e04912edc1e67c',layer:null,span:0.000,sea:'UNK',lineOnly:false,region:'USA'});
+NOTAM_REG.push({code:'KZNY',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:null,layerName:'feature_group_2fb2aae4ef99e2c9e7413fe5a44016bf',layer:null,span:0.000,sea:'UNK',lineOnly:false,region:'USA'});
+NOTAM_REG.push({code:'KZOB',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:null,layerName:'feature_group_e7267adf86ef5ada64e79fc911dfb78e',layer:null,span:0.000,sea:'UNK',lineOnly:false,region:'USA'});
+NOTAM_REG.push({code:'KZSE',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:null,layerName:'feature_group_6926f5abd3db755526b31216a51e746f',layer:null,span:0.000,sea:'UNK',lineOnly:false,region:'USA'});
+NOTAM_REG.push({code:'KZAK',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:null,layerName:'feature_group_073969057da1a575c39d1485181f822a',layer:null,span:0.000,sea:'UNK',lineOnly:false,region:'OCEANIC'});
+NOTAM_REG.push({code:'KZTL',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:null,layerName:'feature_group_c1b75ce23199880302b9adc1bf436a66',layer:null,span:0.000,sea:'UNK',lineOnly:false,region:'USA'});
+NOTAM_REG.push({code:'KZWY',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:null,layerName:'feature_group_1bd13add0a4698fa74b20aaca8f0f994',layer:null,span:0.000,sea:'UNK',lineOnly:false,region:'USA'});
+NOTAM_REG.push({code:'PAZA',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:null,layerName:'feature_group_c36e566f23384915d385bb5042bb505b',layer:null,span:0.000,sea:'UNK',lineOnly:false,region:'OCEANIC'});
+NOTAM_REG.push({code:'PHZH',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:null,layerName:'feature_group_75011c89ea08007459b23873e6f9f2e9',layer:null,span:0.000,sea:'UNK',lineOnly:false,region:'OCEANIC'});
+NOTAM_REG.push({code:'UUWV',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:null,layerName:'feature_group_ec56f01346876b42bfda2084e96701eb',layer:null,span:0.000,sea:'UNK',lineOnly:false,region:'RUSSIA'});
+NOTAM_REG.push({code:'ULLL',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:null,layerName:'feature_group_2613c4d5b21ef20882091170df02bd22',layer:null,span:0.000,sea:'UNK',lineOnly:false,region:'RUSSIA'});
+NOTAM_REG.push({code:'UWWW',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:null,layerName:'feature_group_9ef5d24ab1cf09ac257d33abb19c17a2',layer:null,span:0.000,sea:'UNK',lineOnly:false,region:'RUSSIA'});
+NOTAM_REG.push({code:'URRV',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:null,layerName:'feature_group_3ed84fda019e70f5e40e3bfa496ad603',layer:null,span:0.000,sea:'UNK',lineOnly:false,region:'RUSSIA'});
+NOTAM_REG.push({code:'UNKL',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:null,layerName:'feature_group_b9657eafa5aae273b6b5d994567b92d6',layer:null,span:0.000,sea:'UNK',lineOnly:false,region:'RUSSIA'});
+NOTAM_REG.push({code:'UNNT',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:null,layerName:'feature_group_bf05a2ad89f96191722d20304f255382',layer:null,span:0.000,sea:'UNK',lineOnly:false,region:'RUSSIA'});
+NOTAM_REG.push({code:'USSV',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:null,layerName:'feature_group_ed42cdd942a5edaaa48d2ef30c26835a',layer:null,span:0.000,sea:'UNK',lineOnly:false,region:'RUSSIA'});
+NOTAM_REG.push({code:'UIII',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:null,layerName:'feature_group_42414cf31c8c3d222b315335116ac19a',layer:null,span:0.000,sea:'UNK',lineOnly:false,region:'RUSSIA'});
+NOTAM_REG.push({code:'UEEE',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:null,layerName:'feature_group_3743a2ef558746fd891268028d4e3d2f',layer:null,span:0.000,sea:'UNK',lineOnly:false,region:'RUSSIA'});
+NOTAM_REG.push({code:'UHHH',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:null,layerName:'feature_group_83ef72fc83b456ac889aed4a86041dbd',layer:null,span:0.000,sea:'UNK',lineOnly:false,region:'RUSSIA'});
+NOTAM_REG.push({code:'UHPP',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:null,layerName:'feature_group_3a6052070fc1708334882a704c550521',layer:null,span:0.000,sea:'UNK',lineOnly:false,region:'RUSSIA'});
+NOTAM_REG.push({code:'UHMM',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:null,layerName:'feature_group_97ac1c3e0282a79f3ae2b03bc982d28b',layer:null,span:0.000,sea:'UNK',lineOnly:false,region:'RUSSIA'});
+NOTAM_REG.push({code:'YBBB',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:null,layerName:'feature_group_9f0ecbee068989eff7df2afd7b33bf6c',layer:null,span:0.000,sea:'UNK',lineOnly:false,region:'OCEANIC'});
+NOTAM_REG.push({code:'YMMM',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:null,layerName:'feature_group_f870d29e0fb3711a1d72c9a6805eae36',layer:null,span:0.000,sea:'UNK',lineOnly:false,region:'OCEANIC'});
+NOTAM_REG.push({code:'AYPM',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:null,layerName:'feature_group_2c87d0bf4cd8abc4aae9cd9fc2afb186',layer:null,span:0.000,sea:'UNK',lineOnly:false,region:'OCEANIC'});
+NOTAM_REG.push({code:'AGGG',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:null,layerName:'feature_group_6832cb63b6c73c250cb0eabfa4faecd5',layer:null,span:0.000,sea:'UNK',lineOnly:false,region:'OCEANIC'});
+NOTAM_REG.push({code:'NFFF',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:null,layerName:'feature_group_e6aa1ab8cc04288875c2a9642c66b0aa',layer:null,span:0.000,sea:'UNK',lineOnly:false,region:'OCEANIC'});
+NOTAM_REG.push({code:'NWWW',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:null,layerName:'feature_group_8426d5da0e6ab1dcbd30025ceb04af9f',layer:null,span:0.000,sea:'UNK',lineOnly:false,region:'OCEANIC'});
+NOTAM_REG.push({code:'NTTT',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:null,layerName:'feature_group_4dce23982ba7907934dd4b786d2d58be',layer:null,span:0.000,sea:'UNK',lineOnly:false,region:'OCEANIC'});
+NOTAM_REG.push({code:'NZZO',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:null,layerName:'feature_group_ed12ebf3dea15cb0f39931986348031c',layer:null,span:0.000,sea:'UNK',lineOnly:false,region:'OCEANIC'});
+NOTAM_REG.push({code:'VOMF',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:null,layerName:'feature_group_dadaa8196de332c18785307b614ff2e5',layer:null,span:0.000,sea:'UNK',lineOnly:false,region:'OCEANIC'});
+NOTAM_REG.push({code:'VABF',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:null,layerName:'feature_group_bbbef5cd76e2f998fba7373112e255d6',layer:null,span:0.000,sea:'UNK',lineOnly:false,region:'OCEANIC'});
+NOTAM_REG.push({code:'VCCF',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:null,layerName:'feature_group_b5fcf0d1c286fe33ac7ee8b044a2cf0f',layer:null,span:0.000,sea:'UNK',lineOnly:false,region:'OCEANIC'});
+NOTAM_REG.push({code:'OOMS',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:null,layerName:'feature_group_52f0dc5556be99c5d109db8b91f66c07',layer:null,span:0.000,sea:'UNK',lineOnly:false,region:'OCEANIC'});
+NOTAM_REG.push({code:'FSSS',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:null,layerName:'feature_group_88dc993dcd4ee3979f3e3d4b2c83dde9',layer:null,span:0.000,sea:'UNK',lineOnly:false,region:'OCEANIC'});
+NOTAM_REG.push({code:'OMAE',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:null,layerName:'feature_group_bbdd58c3c27e2bcb89bed5e42e101678',layer:null,span:0.000,sea:'UNK',lineOnly:false,region:'OCEANIC'});
+NOTAM_REG.push({code:'FMMM',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:null,layerName:'feature_group_ea6becd4648ed07ebff104bbdedb57ff',layer:null,span:0.000,sea:'UNK',lineOnly:false,region:'OCEANIC'});
+NOTAM_REG.push({code:'RCAA',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:null,layerName:'feature_group_fdb56c3e99553ef28db4557daed13a93',layer:null,span:0.000,sea:'UNK',lineOnly:false,region:'ASIA'});
+NOTAM_REG.push({code:'VHHK',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:null,layerName:'feature_group_e6cdee7a30741bf37dcc4fe492d68694',layer:null,span:0.000,sea:'UNK',lineOnly:false,region:'ASIA'});
+NOTAM_REG.push({code:'RJJJ',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:null,layerName:'feature_group_4ec59f50720e6c42bc5f427d88db52c7',layer:null,span:0.000,sea:'UNK',lineOnly:false,region:'ASIA'});
+NOTAM_REG.push({code:'RPHI',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:null,layerName:'feature_group_b0992100c7626fba868a625e7bb0cc50',layer:null,span:0.000,sea:'UNK',lineOnly:false,region:'ASIA'});
+NOTAM_REG.push({code:'RKRR',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:null,layerName:'feature_group_937332834dd53eb31926544f6a2edc38',layer:null,span:0.000,sea:'UNK',lineOnly:false,region:'ASIA'});
+NOTAM_REG.push({code:'VVHM',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:null,layerName:'feature_group_afc9fec643dc39560dc91e23192165eb',layer:null,span:0.000,sea:'UNK',lineOnly:false,region:'ASIA'});
+NOTAM_REG.push({code:'WMFC',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:null,layerName:'feature_group_dc69314854b140eb88c599f9d8927f41',layer:null,span:0.000,sea:'UNK',lineOnly:false,region:'ASIA'});
 
         function resolveLayers(){
           let ok=true;
@@ -459,6 +476,17 @@ NOTAM_REG.push({code:'WMFC',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:
             syncTs();
           }
 
+          // 圖例開關
+          const legendBox = document.getElementById('mapLegend');
+          const lgToggle  = document.getElementById('showLegend');
+          if (legendBox && lgToggle) {
+            const syncLg = ()=>{ legendBox.style.display = lgToggle.checked ? 'block' : 'none'; };
+            lgToggle.addEventListener('change', syncLg);
+            syncLg();
+          }
+
+
+
           bindRegionMasters();
           applyFilter();
         }
@@ -469,8 +497,8 @@ NOTAM_REG.push({code:'WMFC',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:
     })();
     
     
-            var map_d0a23bd503b02b85e85f90812bf22d39 = L.map(
-                "map_d0a23bd503b02b85e85f90812bf22d39",
+            var map_bb5db55c3e433184dc50a9af9488c8da = L.map(
+                "map_bb5db55c3e433184dc50a9af9488c8da",
                 {
                     center: [23.7, 121.0],
                     crs: L.CRS.EPSG3857,
@@ -482,13 +510,13 @@ NOTAM_REG.push({code:'WMFC',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:
 
                 }
             );
-            L.control.scale().addTo(map_d0a23bd503b02b85e85f90812bf22d39);
+            L.control.scale().addTo(map_bb5db55c3e433184dc50a9af9488c8da);
 
             
 
         
     
-            var tile_layer_87b39856e0dd6417a59237a98eeb0c29 = L.tileLayer(
+            var tile_layer_4e5b5a5e0a9798ae82007f566fcaffcb = L.tileLayer(
                 "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
                 {
   "minZoom": 0,
@@ -505,10 +533,10 @@ NOTAM_REG.push({code:'WMFC',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:
             );
         
     
-            tile_layer_87b39856e0dd6417a59237a98eeb0c29.addTo(map_d0a23bd503b02b85e85f90812bf22d39);
+            tile_layer_4e5b5a5e0a9798ae82007f566fcaffcb.addTo(map_bb5db55c3e433184dc50a9af9488c8da);
         
     
-            var tile_layer_798c7dfdd8f4f06c70f6a6a97d9e9b5f = L.tileLayer(
+            var tile_layer_b35e4469e17b6ed97af7778adf28b248 = L.tileLayer(
                 "https://webrd0{s}.is.autonavi.com/appmaptile?lang=zh_cn\u0026size=1\u0026scale=1\u0026style=7\u0026x={x}\u0026y={y}\u0026z={z}",
                 {
   "minZoom": 0,
@@ -525,10 +553,10 @@ NOTAM_REG.push({code:'WMFC',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:
             );
         
     
-            tile_layer_798c7dfdd8f4f06c70f6a6a97d9e9b5f.addTo(map_d0a23bd503b02b85e85f90812bf22d39);
+            tile_layer_b35e4469e17b6ed97af7778adf28b248.addTo(map_bb5db55c3e433184dc50a9af9488c8da);
         
     
-            var tile_layer_75aec43f6060332719494246f0046fc9 = L.tileLayer(
+            var tile_layer_95b7e4d28c8469929cc4d1d1f2706b49 = L.tileLayer(
                 "https://mt{s}.google.com/vt/lyrs=s\u0026x={x}\u0026y={y}\u0026z={z}",
                 {
   "minZoom": 0,
@@ -545,10 +573,10 @@ NOTAM_REG.push({code:'WMFC',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:
             );
         
     
-            tile_layer_75aec43f6060332719494246f0046fc9.addTo(map_d0a23bd503b02b85e85f90812bf22d39);
+            tile_layer_95b7e4d28c8469929cc4d1d1f2706b49.addTo(map_bb5db55c3e433184dc50a9af9488c8da);
         
     
-            var tile_layer_affd00834fb17940f56a091f613db83f = L.tileLayer(
+            var tile_layer_d302bb9eb02a985532b5f0e3c97b3dfc = L.tileLayer(
                 "https://mt{s}.google.com/vt/lyrs=y\u0026hl=zh-TW\u0026x={x}\u0026y={y}\u0026z={z}",
                 {
   "minZoom": 0,
@@ -565,991 +593,991 @@ NOTAM_REG.push({code:'WMFC',id:'ERROR',cat:'GENERAL',st:null,et:null,lo:null,hi:
             );
         
     
-            tile_layer_affd00834fb17940f56a091f613db83f.addTo(map_d0a23bd503b02b85e85f90812bf22d39);
+            tile_layer_d302bb9eb02a985532b5f0e3c97b3dfc.addTo(map_bb5db55c3e433184dc50a9af9488c8da);
         
     
-            var feature_group_b08cb237a48269e5d6c2cf92d4362832 = L.featureGroup(
+            var feature_group_e853f2081ee6d1a50cd6425b45298fca = L.featureGroup(
                 {
 }
             );
         
     
-            feature_group_b08cb237a48269e5d6c2cf92d4362832.addTo(map_d0a23bd503b02b85e85f90812bf22d39);
+            feature_group_e853f2081ee6d1a50cd6425b45298fca.addTo(map_bb5db55c3e433184dc50a9af9488c8da);
         
     
-            var feature_group_41d8326d29629965263047ee575fdb2c = L.featureGroup(
+            var feature_group_1f589e27663d0760eb10c0e43a8c054b = L.featureGroup(
                 {
 }
             );
         
     
-            feature_group_41d8326d29629965263047ee575fdb2c.addTo(map_d0a23bd503b02b85e85f90812bf22d39);
+            feature_group_1f589e27663d0760eb10c0e43a8c054b.addTo(map_bb5db55c3e433184dc50a9af9488c8da);
         
     
-            var feature_group_544ba8387bd749a293f93428b4e66137 = L.featureGroup(
+            var feature_group_2dd3f7184d325222cb3acefe62908883 = L.featureGroup(
                 {
 }
             );
         
     
-            feature_group_544ba8387bd749a293f93428b4e66137.addTo(map_d0a23bd503b02b85e85f90812bf22d39);
+            feature_group_2dd3f7184d325222cb3acefe62908883.addTo(map_bb5db55c3e433184dc50a9af9488c8da);
         
     
-            var feature_group_58ddf748b2870a7dddfcf1fa665a0490 = L.featureGroup(
+            var feature_group_1e948f6b2e94292e5d1a488153829372 = L.featureGroup(
                 {
 }
             );
         
     
-            feature_group_58ddf748b2870a7dddfcf1fa665a0490.addTo(map_d0a23bd503b02b85e85f90812bf22d39);
+            feature_group_1e948f6b2e94292e5d1a488153829372.addTo(map_bb5db55c3e433184dc50a9af9488c8da);
         
     
-            var feature_group_5ffafdb70377bb8a71dca01032b964c1 = L.featureGroup(
+            var feature_group_2a66a7cb7d00d67f7d98e0bf0c8e9ebc = L.featureGroup(
                 {
 }
             );
         
     
-            feature_group_5ffafdb70377bb8a71dca01032b964c1.addTo(map_d0a23bd503b02b85e85f90812bf22d39);
+            feature_group_2a66a7cb7d00d67f7d98e0bf0c8e9ebc.addTo(map_bb5db55c3e433184dc50a9af9488c8da);
         
     
-            var feature_group_c31431c901bb5e71e89f8076650fdee0 = L.featureGroup(
+            var feature_group_71c1a608f666fbfe925be08b74f146d3 = L.featureGroup(
                 {
 }
             );
         
     
-            feature_group_c31431c901bb5e71e89f8076650fdee0.addTo(map_d0a23bd503b02b85e85f90812bf22d39);
+            feature_group_71c1a608f666fbfe925be08b74f146d3.addTo(map_bb5db55c3e433184dc50a9af9488c8da);
         
     
-            var feature_group_76b82ebe3dbcb2e025920b4847a5ddef = L.featureGroup(
+            var feature_group_b074bf9e709ee134b28da710c5504354 = L.featureGroup(
                 {
 }
             );
         
     
-            feature_group_76b82ebe3dbcb2e025920b4847a5ddef.addTo(map_d0a23bd503b02b85e85f90812bf22d39);
+            feature_group_b074bf9e709ee134b28da710c5504354.addTo(map_bb5db55c3e433184dc50a9af9488c8da);
         
     
-            var feature_group_2b6ade6208d927638904f60a87c1ab74 = L.featureGroup(
+            var feature_group_5ad746b78e995d1a0963a599708f6173 = L.featureGroup(
                 {
 }
             );
         
     
-            feature_group_2b6ade6208d927638904f60a87c1ab74.addTo(map_d0a23bd503b02b85e85f90812bf22d39);
+            feature_group_5ad746b78e995d1a0963a599708f6173.addTo(map_bb5db55c3e433184dc50a9af9488c8da);
         
     
-            var feature_group_25c2a1dfa7639043052a391478d457ad = L.featureGroup(
+            var feature_group_f90ab83ee77b1a6b4f0028f665c542fd = L.featureGroup(
                 {
 }
             );
         
     
-            feature_group_25c2a1dfa7639043052a391478d457ad.addTo(map_d0a23bd503b02b85e85f90812bf22d39);
+            feature_group_f90ab83ee77b1a6b4f0028f665c542fd.addTo(map_bb5db55c3e433184dc50a9af9488c8da);
         
     
-            var feature_group_04b973aa82974c492e25dff13e689041 = L.featureGroup(
+            var feature_group_71a1b81b6a757f5dd19d943b6bd8c2c5 = L.featureGroup(
                 {
 }
             );
         
     
-            feature_group_04b973aa82974c492e25dff13e689041.addTo(map_d0a23bd503b02b85e85f90812bf22d39);
+            feature_group_71a1b81b6a757f5dd19d943b6bd8c2c5.addTo(map_bb5db55c3e433184dc50a9af9488c8da);
         
     
-            var feature_group_add98976a91306132c0e0295b05efe88 = L.featureGroup(
+            var feature_group_2884077ae73d0b03b510494243470f2c = L.featureGroup(
                 {
 }
             );
         
     
-            feature_group_add98976a91306132c0e0295b05efe88.addTo(map_d0a23bd503b02b85e85f90812bf22d39);
+            feature_group_2884077ae73d0b03b510494243470f2c.addTo(map_bb5db55c3e433184dc50a9af9488c8da);
         
     
-            var feature_group_b467871072364df51141f2d84e18f7dd = L.featureGroup(
+            var feature_group_d8ecdfe6f41f44be09cbac7324670bc4 = L.featureGroup(
                 {
 }
             );
         
     
-            feature_group_b467871072364df51141f2d84e18f7dd.addTo(map_d0a23bd503b02b85e85f90812bf22d39);
+            feature_group_d8ecdfe6f41f44be09cbac7324670bc4.addTo(map_bb5db55c3e433184dc50a9af9488c8da);
         
     
-            var feature_group_669fbd2fbdc4020044ec5abdcc468ded = L.featureGroup(
+            var feature_group_29f5f156cea7934adb19340ab82aa6fe = L.featureGroup(
                 {
 }
             );
         
     
-            feature_group_669fbd2fbdc4020044ec5abdcc468ded.addTo(map_d0a23bd503b02b85e85f90812bf22d39);
+            feature_group_29f5f156cea7934adb19340ab82aa6fe.addTo(map_bb5db55c3e433184dc50a9af9488c8da);
         
     
-            var feature_group_1282d0feceaf782b48ae7ba1f4fcbb5d = L.featureGroup(
+            var feature_group_2dedc6a88fe8e1d34e79ab79b719028d = L.featureGroup(
                 {
 }
             );
         
     
-            feature_group_1282d0feceaf782b48ae7ba1f4fcbb5d.addTo(map_d0a23bd503b02b85e85f90812bf22d39);
+            feature_group_2dedc6a88fe8e1d34e79ab79b719028d.addTo(map_bb5db55c3e433184dc50a9af9488c8da);
         
     
-            var feature_group_a9596a53d1ea02fc2fabe8b5e1e0e84d = L.featureGroup(
+            var feature_group_ce6b9f5f1fc6d8d1cb120229e10d23b9 = L.featureGroup(
                 {
 }
             );
         
     
-            feature_group_a9596a53d1ea02fc2fabe8b5e1e0e84d.addTo(map_d0a23bd503b02b85e85f90812bf22d39);
+            feature_group_ce6b9f5f1fc6d8d1cb120229e10d23b9.addTo(map_bb5db55c3e433184dc50a9af9488c8da);
         
     
-            var feature_group_e778cbeae682f54715c89552b0ebc2ed = L.featureGroup(
+            var feature_group_a4b714912b3dae52404a9849cb698a92 = L.featureGroup(
                 {
 }
             );
         
     
-            feature_group_e778cbeae682f54715c89552b0ebc2ed.addTo(map_d0a23bd503b02b85e85f90812bf22d39);
+            feature_group_a4b714912b3dae52404a9849cb698a92.addTo(map_bb5db55c3e433184dc50a9af9488c8da);
         
     
-            var feature_group_b88d21909fd55c1d32877c6f20015d5d = L.featureGroup(
+            var feature_group_9fa2a5c2a03ceaa76d765da1904d6c6a = L.featureGroup(
                 {
 }
             );
         
     
-            feature_group_b88d21909fd55c1d32877c6f20015d5d.addTo(map_d0a23bd503b02b85e85f90812bf22d39);
+            feature_group_9fa2a5c2a03ceaa76d765da1904d6c6a.addTo(map_bb5db55c3e433184dc50a9af9488c8da);
         
     
-            var feature_group_e4367acd060aaebbb3d427613c479339 = L.featureGroup(
+            var feature_group_9bf6ae382966f49e21096e5c4c7b3543 = L.featureGroup(
                 {
 }
             );
         
     
-            feature_group_e4367acd060aaebbb3d427613c479339.addTo(map_d0a23bd503b02b85e85f90812bf22d39);
+            feature_group_9bf6ae382966f49e21096e5c4c7b3543.addTo(map_bb5db55c3e433184dc50a9af9488c8da);
         
     
-            var feature_group_4330d934438ea5777b9994af97263a7f = L.featureGroup(
+            var feature_group_084d258ef6c943fbfa9deb4d95fbd2c0 = L.featureGroup(
                 {
 }
             );
         
     
-            feature_group_4330d934438ea5777b9994af97263a7f.addTo(map_d0a23bd503b02b85e85f90812bf22d39);
+            feature_group_084d258ef6c943fbfa9deb4d95fbd2c0.addTo(map_bb5db55c3e433184dc50a9af9488c8da);
         
     
-            var feature_group_d1a17a110b3415edd4f6dbe5c5b0b3d0 = L.featureGroup(
+            var feature_group_741f2365b7fae899819055c6c36a078d = L.featureGroup(
                 {
 }
             );
         
     
-            feature_group_d1a17a110b3415edd4f6dbe5c5b0b3d0.addTo(map_d0a23bd503b02b85e85f90812bf22d39);
+            feature_group_741f2365b7fae899819055c6c36a078d.addTo(map_bb5db55c3e433184dc50a9af9488c8da);
         
     
-            var feature_group_0eec7358c444310b4be1b551940750d9 = L.featureGroup(
+            var feature_group_2cbd46d9f0657496eae5d939ec9064a8 = L.featureGroup(
                 {
 }
             );
         
     
-            feature_group_0eec7358c444310b4be1b551940750d9.addTo(map_d0a23bd503b02b85e85f90812bf22d39);
+            feature_group_2cbd46d9f0657496eae5d939ec9064a8.addTo(map_bb5db55c3e433184dc50a9af9488c8da);
         
     
-            var feature_group_15c50be9bfcd1908c9fd044989e3f832 = L.featureGroup(
+            var feature_group_53a93f56fd3d8ebc5d539103a440968d = L.featureGroup(
                 {
 }
             );
         
     
-            feature_group_15c50be9bfcd1908c9fd044989e3f832.addTo(map_d0a23bd503b02b85e85f90812bf22d39);
+            feature_group_53a93f56fd3d8ebc5d539103a440968d.addTo(map_bb5db55c3e433184dc50a9af9488c8da);
         
     
-            var feature_group_91390d2483ac4b0327e526582fab3f08 = L.featureGroup(
+            var feature_group_9ee8d52474c27bb34f8218bd6c92001f = L.featureGroup(
                 {
 }
             );
         
     
-            feature_group_91390d2483ac4b0327e526582fab3f08.addTo(map_d0a23bd503b02b85e85f90812bf22d39);
+            feature_group_9ee8d52474c27bb34f8218bd6c92001f.addTo(map_bb5db55c3e433184dc50a9af9488c8da);
         
     
-            var feature_group_650b514cde2092957201dd54e9908e3f = L.featureGroup(
+            var feature_group_79539b7a181cbfdf5111f4c09df46ea6 = L.featureGroup(
                 {
 }
             );
         
     
-            feature_group_650b514cde2092957201dd54e9908e3f.addTo(map_d0a23bd503b02b85e85f90812bf22d39);
+            feature_group_79539b7a181cbfdf5111f4c09df46ea6.addTo(map_bb5db55c3e433184dc50a9af9488c8da);
         
     
-            var feature_group_0c695baaa78e0831b8076c1123b3bb77 = L.featureGroup(
+            var feature_group_6daf3554ea430a97b86fd6287ef286bc = L.featureGroup(
                 {
 }
             );
         
     
-            feature_group_0c695baaa78e0831b8076c1123b3bb77.addTo(map_d0a23bd503b02b85e85f90812bf22d39);
+            feature_group_6daf3554ea430a97b86fd6287ef286bc.addTo(map_bb5db55c3e433184dc50a9af9488c8da);
         
     
-            var feature_group_d685575c23855b4c692e979db69c30f9 = L.featureGroup(
+            var feature_group_5aac78368affa48b18b93f55e7f4f5c6 = L.featureGroup(
                 {
 }
             );
         
     
-            feature_group_d685575c23855b4c692e979db69c30f9.addTo(map_d0a23bd503b02b85e85f90812bf22d39);
+            feature_group_5aac78368affa48b18b93f55e7f4f5c6.addTo(map_bb5db55c3e433184dc50a9af9488c8da);
         
     
-            var feature_group_6c43aa2eaf5d4f44471e63abcfe0023f = L.featureGroup(
+            var feature_group_d4dc4ebea8fc52c8d143060ee362bb7f = L.featureGroup(
                 {
 }
             );
         
     
-            feature_group_6c43aa2eaf5d4f44471e63abcfe0023f.addTo(map_d0a23bd503b02b85e85f90812bf22d39);
+            feature_group_d4dc4ebea8fc52c8d143060ee362bb7f.addTo(map_bb5db55c3e433184dc50a9af9488c8da);
         
     
-            var feature_group_d0d2ea3360b63e3a778d047573ec6f60 = L.featureGroup(
+            var feature_group_320a8e0684e94e63643da486429277ef = L.featureGroup(
                 {
 }
             );
         
     
-            feature_group_d0d2ea3360b63e3a778d047573ec6f60.addTo(map_d0a23bd503b02b85e85f90812bf22d39);
+            feature_group_320a8e0684e94e63643da486429277ef.addTo(map_bb5db55c3e433184dc50a9af9488c8da);
         
     
-            var feature_group_d5c0a5c3ae3655c77d4003ec570908a1 = L.featureGroup(
+            var feature_group_80c03364faf1edbfc955d79e9f7f2a43 = L.featureGroup(
                 {
 }
             );
         
     
-            feature_group_d5c0a5c3ae3655c77d4003ec570908a1.addTo(map_d0a23bd503b02b85e85f90812bf22d39);
+            feature_group_80c03364faf1edbfc955d79e9f7f2a43.addTo(map_bb5db55c3e433184dc50a9af9488c8da);
         
     
-            var feature_group_8df8ddba2cbfa6a5440eeb5dc782b802 = L.featureGroup(
+            var feature_group_6bada2ee9f43aafad322ada408c8d081 = L.featureGroup(
                 {
 }
             );
         
     
-            feature_group_8df8ddba2cbfa6a5440eeb5dc782b802.addTo(map_d0a23bd503b02b85e85f90812bf22d39);
+            feature_group_6bada2ee9f43aafad322ada408c8d081.addTo(map_bb5db55c3e433184dc50a9af9488c8da);
         
     
-            var feature_group_77b43e8f6fb39c6f83a79fa714512062 = L.featureGroup(
+            var feature_group_f1c6778db9331458a742f9d57caaf324 = L.featureGroup(
                 {
 }
             );
         
     
-            feature_group_77b43e8f6fb39c6f83a79fa714512062.addTo(map_d0a23bd503b02b85e85f90812bf22d39);
+            feature_group_f1c6778db9331458a742f9d57caaf324.addTo(map_bb5db55c3e433184dc50a9af9488c8da);
         
     
-            var feature_group_aa6abe0f245c52f4c8abc9035a1dc75a = L.featureGroup(
+            var feature_group_0cfda4c3fec1e4c3ac9517900852281f = L.featureGroup(
                 {
 }
             );
         
     
-            feature_group_aa6abe0f245c52f4c8abc9035a1dc75a.addTo(map_d0a23bd503b02b85e85f90812bf22d39);
+            feature_group_0cfda4c3fec1e4c3ac9517900852281f.addTo(map_bb5db55c3e433184dc50a9af9488c8da);
         
     
-            var feature_group_cf8bb5c2ccb6aabc3d3e62e454b1427f = L.featureGroup(
+            var feature_group_962ec16cce2bf1aa5febb685f546921b = L.featureGroup(
                 {
 }
             );
         
     
-            feature_group_cf8bb5c2ccb6aabc3d3e62e454b1427f.addTo(map_d0a23bd503b02b85e85f90812bf22d39);
+            feature_group_962ec16cce2bf1aa5febb685f546921b.addTo(map_bb5db55c3e433184dc50a9af9488c8da);
         
     
-            var feature_group_fdb6fc1a23f17afb0d20dfdc68c330dd = L.featureGroup(
+            var feature_group_a4e193fabc8d4114e03945fe138b4dcb = L.featureGroup(
                 {
 }
             );
         
     
-            feature_group_fdb6fc1a23f17afb0d20dfdc68c330dd.addTo(map_d0a23bd503b02b85e85f90812bf22d39);
+            feature_group_a4e193fabc8d4114e03945fe138b4dcb.addTo(map_bb5db55c3e433184dc50a9af9488c8da);
         
     
-            var feature_group_ac63e61f191ff89a97b9842a6ef4bc86 = L.featureGroup(
+            var feature_group_77db04ba26058884ba0a7c67a49065f8 = L.featureGroup(
                 {
 }
             );
         
     
-            feature_group_ac63e61f191ff89a97b9842a6ef4bc86.addTo(map_d0a23bd503b02b85e85f90812bf22d39);
+            feature_group_77db04ba26058884ba0a7c67a49065f8.addTo(map_bb5db55c3e433184dc50a9af9488c8da);
         
     
-            var feature_group_ccf14cec2116cbe4700632b7292c3d8c = L.featureGroup(
+            var feature_group_de842da1dc192e0bee436abd28c0d498 = L.featureGroup(
                 {
 }
             );
         
     
-            feature_group_ccf14cec2116cbe4700632b7292c3d8c.addTo(map_d0a23bd503b02b85e85f90812bf22d39);
+            feature_group_de842da1dc192e0bee436abd28c0d498.addTo(map_bb5db55c3e433184dc50a9af9488c8da);
         
     
-            var feature_group_b036392ab8c705790be16803799be471 = L.featureGroup(
+            var feature_group_962fbc9bc9a86dab58c20906e128bd53 = L.featureGroup(
                 {
 }
             );
         
     
-            feature_group_b036392ab8c705790be16803799be471.addTo(map_d0a23bd503b02b85e85f90812bf22d39);
+            feature_group_962fbc9bc9a86dab58c20906e128bd53.addTo(map_bb5db55c3e433184dc50a9af9488c8da);
         
     
-            var feature_group_85bfda50b8c54bcb4ce619a2a52d4f3f = L.featureGroup(
+            var feature_group_f22e5a129b1fef01998f5caec91935dd = L.featureGroup(
                 {
 }
             );
         
     
-            feature_group_85bfda50b8c54bcb4ce619a2a52d4f3f.addTo(map_d0a23bd503b02b85e85f90812bf22d39);
+            feature_group_f22e5a129b1fef01998f5caec91935dd.addTo(map_bb5db55c3e433184dc50a9af9488c8da);
         
     
-            var feature_group_42eb0b3aca8a05d73907f369ac2fd623 = L.featureGroup(
+            var feature_group_72d7830a45549355f2af04e1884ebc94 = L.featureGroup(
                 {
 }
             );
         
     
-            feature_group_42eb0b3aca8a05d73907f369ac2fd623.addTo(map_d0a23bd503b02b85e85f90812bf22d39);
+            feature_group_72d7830a45549355f2af04e1884ebc94.addTo(map_bb5db55c3e433184dc50a9af9488c8da);
         
     
-            var feature_group_c018e2be07b07113468966fedc8a742b = L.featureGroup(
+            var feature_group_96144d5a4602289752f01f27479868d5 = L.featureGroup(
                 {
 }
             );
         
     
-            feature_group_c018e2be07b07113468966fedc8a742b.addTo(map_d0a23bd503b02b85e85f90812bf22d39);
+            feature_group_96144d5a4602289752f01f27479868d5.addTo(map_bb5db55c3e433184dc50a9af9488c8da);
         
     
-            var feature_group_2781b770489a5044f83d7b1f4ff965d2 = L.featureGroup(
+            var feature_group_3b621b22c86abd750e8d332d26e43992 = L.featureGroup(
                 {
 }
             );
         
     
-            feature_group_2781b770489a5044f83d7b1f4ff965d2.addTo(map_d0a23bd503b02b85e85f90812bf22d39);
+            feature_group_3b621b22c86abd750e8d332d26e43992.addTo(map_bb5db55c3e433184dc50a9af9488c8da);
         
     
-            var feature_group_0a8c01827f8437d08f2c2eb82dc0dcc6 = L.featureGroup(
+            var feature_group_ef56330eeaf08a86c58770bb3b98f5c1 = L.featureGroup(
                 {
 }
             );
         
     
-            feature_group_0a8c01827f8437d08f2c2eb82dc0dcc6.addTo(map_d0a23bd503b02b85e85f90812bf22d39);
+            feature_group_ef56330eeaf08a86c58770bb3b98f5c1.addTo(map_bb5db55c3e433184dc50a9af9488c8da);
         
     
-            var feature_group_f7e9d9180372e06225fd2559c026a578 = L.featureGroup(
+            var feature_group_ee8af58559fdca48bd93423790fb959f = L.featureGroup(
                 {
 }
             );
         
     
-            feature_group_f7e9d9180372e06225fd2559c026a578.addTo(map_d0a23bd503b02b85e85f90812bf22d39);
+            feature_group_ee8af58559fdca48bd93423790fb959f.addTo(map_bb5db55c3e433184dc50a9af9488c8da);
         
     
-            var feature_group_ab8a1da1582d012df740b08929754363 = L.featureGroup(
+            var feature_group_a5d24e2dc1050eae7c1e754e176629f5 = L.featureGroup(
                 {
 }
             );
         
     
-            feature_group_ab8a1da1582d012df740b08929754363.addTo(map_d0a23bd503b02b85e85f90812bf22d39);
+            feature_group_a5d24e2dc1050eae7c1e754e176629f5.addTo(map_bb5db55c3e433184dc50a9af9488c8da);
         
     
-            var feature_group_8fddff36dfc58adbe415dd9d4f804985 = L.featureGroup(
+            var feature_group_a97b91b3c1ae775e107c4895aab74e09 = L.featureGroup(
                 {
 }
             );
         
     
-            feature_group_8fddff36dfc58adbe415dd9d4f804985.addTo(map_d0a23bd503b02b85e85f90812bf22d39);
+            feature_group_a97b91b3c1ae775e107c4895aab74e09.addTo(map_bb5db55c3e433184dc50a9af9488c8da);
         
     
-            var feature_group_33bad06cc1f85d19d788bf15ce053eaa = L.featureGroup(
+            var feature_group_e4ec6251e79b8099b949032b102a6bd7 = L.featureGroup(
                 {
 }
             );
         
     
-            feature_group_33bad06cc1f85d19d788bf15ce053eaa.addTo(map_d0a23bd503b02b85e85f90812bf22d39);
+            feature_group_e4ec6251e79b8099b949032b102a6bd7.addTo(map_bb5db55c3e433184dc50a9af9488c8da);
         
     
-            var feature_group_d4b9944dff41dde8ba44bf7835db9303 = L.featureGroup(
+            var feature_group_72dcdcf38c201363e421155f84f4c3af = L.featureGroup(
                 {
 }
             );
         
     
-            feature_group_d4b9944dff41dde8ba44bf7835db9303.addTo(map_d0a23bd503b02b85e85f90812bf22d39);
+            feature_group_72dcdcf38c201363e421155f84f4c3af.addTo(map_bb5db55c3e433184dc50a9af9488c8da);
         
     
-            var feature_group_816c45b9b661c1f5d1c06ec75c4eee73 = L.featureGroup(
+            var feature_group_efc4e67cf48cb9165ef8bef6419d39ae = L.featureGroup(
                 {
 }
             );
         
     
-            feature_group_816c45b9b661c1f5d1c06ec75c4eee73.addTo(map_d0a23bd503b02b85e85f90812bf22d39);
+            feature_group_efc4e67cf48cb9165ef8bef6419d39ae.addTo(map_bb5db55c3e433184dc50a9af9488c8da);
         
     
-            var feature_group_458adbddd9d1242202cc4e76cce0028d = L.featureGroup(
+            var feature_group_53edc8212b148aa1799454bcd6b438e6 = L.featureGroup(
                 {
 }
             );
         
     
-            feature_group_458adbddd9d1242202cc4e76cce0028d.addTo(map_d0a23bd503b02b85e85f90812bf22d39);
+            feature_group_53edc8212b148aa1799454bcd6b438e6.addTo(map_bb5db55c3e433184dc50a9af9488c8da);
         
     
-            var feature_group_d3f06183c731bf6cc55b4ce96db8d582 = L.featureGroup(
+            var feature_group_dafe3c757a961fe8c6b45304dc00e836 = L.featureGroup(
                 {
 }
             );
         
     
-            feature_group_d3f06183c731bf6cc55b4ce96db8d582.addTo(map_d0a23bd503b02b85e85f90812bf22d39);
+            feature_group_dafe3c757a961fe8c6b45304dc00e836.addTo(map_bb5db55c3e433184dc50a9af9488c8da);
         
     
-            var feature_group_7f591f6bc90866802ebb296804560364 = L.featureGroup(
+            var feature_group_5af9956a4a9969cf704c79508a337d3b = L.featureGroup(
                 {
 }
             );
         
     
-            feature_group_7f591f6bc90866802ebb296804560364.addTo(map_d0a23bd503b02b85e85f90812bf22d39);
+            feature_group_5af9956a4a9969cf704c79508a337d3b.addTo(map_bb5db55c3e433184dc50a9af9488c8da);
         
     
-            var feature_group_46b44e67949a247f555baae0d5d5a4d3 = L.featureGroup(
+            var feature_group_e1e0662c8b5174912e368fb4b4764d58 = L.featureGroup(
                 {
 }
             );
         
     
-            feature_group_46b44e67949a247f555baae0d5d5a4d3.addTo(map_d0a23bd503b02b85e85f90812bf22d39);
+            feature_group_e1e0662c8b5174912e368fb4b4764d58.addTo(map_bb5db55c3e433184dc50a9af9488c8da);
         
     
-            var feature_group_f209d0c6c3da6f9fba356ecfaf97b205 = L.featureGroup(
+            var feature_group_3f18750db65a0d4d3c2c33a62ac6f658 = L.featureGroup(
                 {
 }
             );
         
     
-            feature_group_f209d0c6c3da6f9fba356ecfaf97b205.addTo(map_d0a23bd503b02b85e85f90812bf22d39);
+            feature_group_3f18750db65a0d4d3c2c33a62ac6f658.addTo(map_bb5db55c3e433184dc50a9af9488c8da);
         
     
-            var feature_group_fa6d05c024931e3a4a64ebb1da21c9ea = L.featureGroup(
+            var feature_group_1cadf55ec041a68ffda78afb5797274b = L.featureGroup(
                 {
 }
             );
         
     
-            feature_group_fa6d05c024931e3a4a64ebb1da21c9ea.addTo(map_d0a23bd503b02b85e85f90812bf22d39);
+            feature_group_1cadf55ec041a68ffda78afb5797274b.addTo(map_bb5db55c3e433184dc50a9af9488c8da);
         
     
-            var feature_group_8d6c4a0cd893d7ffd1e186c79e452118 = L.featureGroup(
+            var feature_group_cac06dd134bbf818af5174245c4a32dc = L.featureGroup(
                 {
 }
             );
         
     
-            feature_group_8d6c4a0cd893d7ffd1e186c79e452118.addTo(map_d0a23bd503b02b85e85f90812bf22d39);
+            feature_group_cac06dd134bbf818af5174245c4a32dc.addTo(map_bb5db55c3e433184dc50a9af9488c8da);
         
     
-            var feature_group_a4641586edecf936a8198702df6a20fa = L.featureGroup(
+            var feature_group_46163770dd41d6eacdef975220095706 = L.featureGroup(
                 {
 }
             );
         
     
-            feature_group_a4641586edecf936a8198702df6a20fa.addTo(map_d0a23bd503b02b85e85f90812bf22d39);
+            feature_group_46163770dd41d6eacdef975220095706.addTo(map_bb5db55c3e433184dc50a9af9488c8da);
         
     
-            var feature_group_6ec92ea3434aa8477861a4ef5ac3ff29 = L.featureGroup(
+            var feature_group_80470ffc444625cbd578d25eca1d47b4 = L.featureGroup(
                 {
 }
             );
         
     
-            feature_group_6ec92ea3434aa8477861a4ef5ac3ff29.addTo(map_d0a23bd503b02b85e85f90812bf22d39);
+            feature_group_80470ffc444625cbd578d25eca1d47b4.addTo(map_bb5db55c3e433184dc50a9af9488c8da);
         
     
-            var feature_group_39bd0d7b989536d788fbb91d5844055b = L.featureGroup(
+            var feature_group_90ba2c2a453255689acb2ce1044daee0 = L.featureGroup(
                 {
 }
             );
         
     
-            feature_group_39bd0d7b989536d788fbb91d5844055b.addTo(map_d0a23bd503b02b85e85f90812bf22d39);
+            feature_group_90ba2c2a453255689acb2ce1044daee0.addTo(map_bb5db55c3e433184dc50a9af9488c8da);
         
     
-            var feature_group_ff1d9e71f772621a7935dd5a5b7201ea = L.featureGroup(
+            var feature_group_2759192f05a2ff70a292da8510373efd = L.featureGroup(
                 {
 }
             );
         
     
-            feature_group_ff1d9e71f772621a7935dd5a5b7201ea.addTo(map_d0a23bd503b02b85e85f90812bf22d39);
+            feature_group_2759192f05a2ff70a292da8510373efd.addTo(map_bb5db55c3e433184dc50a9af9488c8da);
         
     
-            var feature_group_2c294a3fef4d27b1970c53a3e3a3c452 = L.featureGroup(
+            var feature_group_009aef26bb0f23ee52484ab7d9905b6e = L.featureGroup(
                 {
 }
             );
         
     
-            feature_group_2c294a3fef4d27b1970c53a3e3a3c452.addTo(map_d0a23bd503b02b85e85f90812bf22d39);
+            feature_group_009aef26bb0f23ee52484ab7d9905b6e.addTo(map_bb5db55c3e433184dc50a9af9488c8da);
         
     
-            var feature_group_76383f40f3ddfb93963a141d58418465 = L.featureGroup(
+            var feature_group_9c6925ac2d82c6a304e44372ee46b446 = L.featureGroup(
                 {
 }
             );
         
     
-            feature_group_76383f40f3ddfb93963a141d58418465.addTo(map_d0a23bd503b02b85e85f90812bf22d39);
+            feature_group_9c6925ac2d82c6a304e44372ee46b446.addTo(map_bb5db55c3e433184dc50a9af9488c8da);
         
     
-            var feature_group_0610b5aa8382e3c5d888756711991a80 = L.featureGroup(
+            var feature_group_4fbe142e7ed445319c198e3262561df0 = L.featureGroup(
                 {
 }
             );
         
     
-            feature_group_0610b5aa8382e3c5d888756711991a80.addTo(map_d0a23bd503b02b85e85f90812bf22d39);
+            feature_group_4fbe142e7ed445319c198e3262561df0.addTo(map_bb5db55c3e433184dc50a9af9488c8da);
         
     
-            var feature_group_85f0c529f68ea8e86479ac6bbf573d34 = L.featureGroup(
+            var feature_group_231fe9d5bb785d99b2234df8f2b84693 = L.featureGroup(
                 {
 }
             );
         
     
-            feature_group_85f0c529f68ea8e86479ac6bbf573d34.addTo(map_d0a23bd503b02b85e85f90812bf22d39);
+            feature_group_231fe9d5bb785d99b2234df8f2b84693.addTo(map_bb5db55c3e433184dc50a9af9488c8da);
         
     
-            var feature_group_4cff22d5ebbbff45bc896008046b3ac5 = L.featureGroup(
+            var feature_group_277995ad9a3bf9cfe5c41d9a0ddcac2b = L.featureGroup(
                 {
 }
             );
         
     
-            feature_group_4cff22d5ebbbff45bc896008046b3ac5.addTo(map_d0a23bd503b02b85e85f90812bf22d39);
+            feature_group_277995ad9a3bf9cfe5c41d9a0ddcac2b.addTo(map_bb5db55c3e433184dc50a9af9488c8da);
         
     
-            var feature_group_068b7d6f1bbc0ee093accd7492b3d91d = L.featureGroup(
+            var feature_group_4ceedbbed7dad568f4e04912edc1e67c = L.featureGroup(
                 {
 }
             );
         
     
-            feature_group_068b7d6f1bbc0ee093accd7492b3d91d.addTo(map_d0a23bd503b02b85e85f90812bf22d39);
+            feature_group_4ceedbbed7dad568f4e04912edc1e67c.addTo(map_bb5db55c3e433184dc50a9af9488c8da);
         
     
-            var feature_group_ffbacb9e0e3efe97db82b6cd07f3c3ae = L.featureGroup(
+            var feature_group_2fb2aae4ef99e2c9e7413fe5a44016bf = L.featureGroup(
                 {
 }
             );
         
     
-            feature_group_ffbacb9e0e3efe97db82b6cd07f3c3ae.addTo(map_d0a23bd503b02b85e85f90812bf22d39);
+            feature_group_2fb2aae4ef99e2c9e7413fe5a44016bf.addTo(map_bb5db55c3e433184dc50a9af9488c8da);
         
     
-            var feature_group_e28b902afc6e9eca4631efda0e424bd1 = L.featureGroup(
+            var feature_group_e7267adf86ef5ada64e79fc911dfb78e = L.featureGroup(
                 {
 }
             );
         
     
-            feature_group_e28b902afc6e9eca4631efda0e424bd1.addTo(map_d0a23bd503b02b85e85f90812bf22d39);
+            feature_group_e7267adf86ef5ada64e79fc911dfb78e.addTo(map_bb5db55c3e433184dc50a9af9488c8da);
         
     
-            var feature_group_4d100a35596fb4628e0acd8e858c54d8 = L.featureGroup(
+            var feature_group_6926f5abd3db755526b31216a51e746f = L.featureGroup(
                 {
 }
             );
         
     
-            feature_group_4d100a35596fb4628e0acd8e858c54d8.addTo(map_d0a23bd503b02b85e85f90812bf22d39);
+            feature_group_6926f5abd3db755526b31216a51e746f.addTo(map_bb5db55c3e433184dc50a9af9488c8da);
         
     
-            var feature_group_92cadfcfa26d711adfd46c6f5113a258 = L.featureGroup(
+            var feature_group_073969057da1a575c39d1485181f822a = L.featureGroup(
                 {
 }
             );
         
     
-            feature_group_92cadfcfa26d711adfd46c6f5113a258.addTo(map_d0a23bd503b02b85e85f90812bf22d39);
+            feature_group_073969057da1a575c39d1485181f822a.addTo(map_bb5db55c3e433184dc50a9af9488c8da);
         
     
-            var feature_group_37b8f2b01795842c72104eec3cab8ed2 = L.featureGroup(
+            var feature_group_c1b75ce23199880302b9adc1bf436a66 = L.featureGroup(
                 {
 }
             );
         
     
-            feature_group_37b8f2b01795842c72104eec3cab8ed2.addTo(map_d0a23bd503b02b85e85f90812bf22d39);
+            feature_group_c1b75ce23199880302b9adc1bf436a66.addTo(map_bb5db55c3e433184dc50a9af9488c8da);
         
     
-            var feature_group_10a0d63c4ca715ebd4aa866b08d99abf = L.featureGroup(
+            var feature_group_1bd13add0a4698fa74b20aaca8f0f994 = L.featureGroup(
                 {
 }
             );
         
     
-            feature_group_10a0d63c4ca715ebd4aa866b08d99abf.addTo(map_d0a23bd503b02b85e85f90812bf22d39);
+            feature_group_1bd13add0a4698fa74b20aaca8f0f994.addTo(map_bb5db55c3e433184dc50a9af9488c8da);
         
     
-            var feature_group_563c73d4ee56276763c66a136146bb53 = L.featureGroup(
+            var feature_group_c36e566f23384915d385bb5042bb505b = L.featureGroup(
                 {
 }
             );
         
     
-            feature_group_563c73d4ee56276763c66a136146bb53.addTo(map_d0a23bd503b02b85e85f90812bf22d39);
+            feature_group_c36e566f23384915d385bb5042bb505b.addTo(map_bb5db55c3e433184dc50a9af9488c8da);
         
     
-            var feature_group_a62d425be4122711570e754cce255208 = L.featureGroup(
+            var feature_group_75011c89ea08007459b23873e6f9f2e9 = L.featureGroup(
                 {
 }
             );
         
     
-            feature_group_a62d425be4122711570e754cce255208.addTo(map_d0a23bd503b02b85e85f90812bf22d39);
+            feature_group_75011c89ea08007459b23873e6f9f2e9.addTo(map_bb5db55c3e433184dc50a9af9488c8da);
         
     
-            var feature_group_7da034947f6024b957fd01d0f4a4c9bd = L.featureGroup(
+            var feature_group_ec56f01346876b42bfda2084e96701eb = L.featureGroup(
                 {
 }
             );
         
     
-            feature_group_7da034947f6024b957fd01d0f4a4c9bd.addTo(map_d0a23bd503b02b85e85f90812bf22d39);
+            feature_group_ec56f01346876b42bfda2084e96701eb.addTo(map_bb5db55c3e433184dc50a9af9488c8da);
         
     
-            var feature_group_72510e580fc76a5ab0a00efdd50593de = L.featureGroup(
+            var feature_group_2613c4d5b21ef20882091170df02bd22 = L.featureGroup(
                 {
 }
             );
         
     
-            feature_group_72510e580fc76a5ab0a00efdd50593de.addTo(map_d0a23bd503b02b85e85f90812bf22d39);
+            feature_group_2613c4d5b21ef20882091170df02bd22.addTo(map_bb5db55c3e433184dc50a9af9488c8da);
         
     
-            var feature_group_79145534000de282efdc82cb3a48901b = L.featureGroup(
+            var feature_group_9ef5d24ab1cf09ac257d33abb19c17a2 = L.featureGroup(
                 {
 }
             );
         
     
-            feature_group_79145534000de282efdc82cb3a48901b.addTo(map_d0a23bd503b02b85e85f90812bf22d39);
+            feature_group_9ef5d24ab1cf09ac257d33abb19c17a2.addTo(map_bb5db55c3e433184dc50a9af9488c8da);
         
     
-            var feature_group_906240a111f5fdf9032382616dcd4e8d = L.featureGroup(
+            var feature_group_3ed84fda019e70f5e40e3bfa496ad603 = L.featureGroup(
                 {
 }
             );
         
     
-            feature_group_906240a111f5fdf9032382616dcd4e8d.addTo(map_d0a23bd503b02b85e85f90812bf22d39);
+            feature_group_3ed84fda019e70f5e40e3bfa496ad603.addTo(map_bb5db55c3e433184dc50a9af9488c8da);
         
     
-            var feature_group_2c1b41e6a7e60295c7075ac2eb3958f1 = L.featureGroup(
+            var feature_group_b9657eafa5aae273b6b5d994567b92d6 = L.featureGroup(
                 {
 }
             );
         
     
-            feature_group_2c1b41e6a7e60295c7075ac2eb3958f1.addTo(map_d0a23bd503b02b85e85f90812bf22d39);
+            feature_group_b9657eafa5aae273b6b5d994567b92d6.addTo(map_bb5db55c3e433184dc50a9af9488c8da);
         
     
-            var feature_group_3f90bd925a75633b6a81757c1ab7c2b4 = L.featureGroup(
+            var feature_group_bf05a2ad89f96191722d20304f255382 = L.featureGroup(
                 {
 }
             );
         
     
-            feature_group_3f90bd925a75633b6a81757c1ab7c2b4.addTo(map_d0a23bd503b02b85e85f90812bf22d39);
+            feature_group_bf05a2ad89f96191722d20304f255382.addTo(map_bb5db55c3e433184dc50a9af9488c8da);
         
     
-            var feature_group_d1e20307698d8011759d39043a77a11f = L.featureGroup(
+            var feature_group_ed42cdd942a5edaaa48d2ef30c26835a = L.featureGroup(
                 {
 }
             );
         
     
-            feature_group_d1e20307698d8011759d39043a77a11f.addTo(map_d0a23bd503b02b85e85f90812bf22d39);
+            feature_group_ed42cdd942a5edaaa48d2ef30c26835a.addTo(map_bb5db55c3e433184dc50a9af9488c8da);
         
     
-            var feature_group_1020ec0a38cf5c690f4b000de3fee880 = L.featureGroup(
+            var feature_group_42414cf31c8c3d222b315335116ac19a = L.featureGroup(
                 {
 }
             );
         
     
-            feature_group_1020ec0a38cf5c690f4b000de3fee880.addTo(map_d0a23bd503b02b85e85f90812bf22d39);
+            feature_group_42414cf31c8c3d222b315335116ac19a.addTo(map_bb5db55c3e433184dc50a9af9488c8da);
         
     
-            var feature_group_088c06f1c56f9a2e46380c77b22cd312 = L.featureGroup(
+            var feature_group_3743a2ef558746fd891268028d4e3d2f = L.featureGroup(
                 {
 }
             );
         
     
-            feature_group_088c06f1c56f9a2e46380c77b22cd312.addTo(map_d0a23bd503b02b85e85f90812bf22d39);
+            feature_group_3743a2ef558746fd891268028d4e3d2f.addTo(map_bb5db55c3e433184dc50a9af9488c8da);
         
     
-            var feature_group_d705bf0888bece357a07ff6e99140381 = L.featureGroup(
+            var feature_group_83ef72fc83b456ac889aed4a86041dbd = L.featureGroup(
                 {
 }
             );
         
     
-            feature_group_d705bf0888bece357a07ff6e99140381.addTo(map_d0a23bd503b02b85e85f90812bf22d39);
+            feature_group_83ef72fc83b456ac889aed4a86041dbd.addTo(map_bb5db55c3e433184dc50a9af9488c8da);
         
     
-            var feature_group_10cad2a907e6eb250e6c37fbb1dc125a = L.featureGroup(
+            var feature_group_3a6052070fc1708334882a704c550521 = L.featureGroup(
                 {
 }
             );
         
     
-            feature_group_10cad2a907e6eb250e6c37fbb1dc125a.addTo(map_d0a23bd503b02b85e85f90812bf22d39);
+            feature_group_3a6052070fc1708334882a704c550521.addTo(map_bb5db55c3e433184dc50a9af9488c8da);
         
     
-            var feature_group_31c9be3a36301fa9232c2cfa13d89491 = L.featureGroup(
+            var feature_group_97ac1c3e0282a79f3ae2b03bc982d28b = L.featureGroup(
                 {
 }
             );
         
     
-            feature_group_31c9be3a36301fa9232c2cfa13d89491.addTo(map_d0a23bd503b02b85e85f90812bf22d39);
+            feature_group_97ac1c3e0282a79f3ae2b03bc982d28b.addTo(map_bb5db55c3e433184dc50a9af9488c8da);
         
     
-            var feature_group_2641a2091acf54b5258c3f5a4f0c213e = L.featureGroup(
+            var feature_group_9f0ecbee068989eff7df2afd7b33bf6c = L.featureGroup(
                 {
 }
             );
         
     
-            feature_group_2641a2091acf54b5258c3f5a4f0c213e.addTo(map_d0a23bd503b02b85e85f90812bf22d39);
+            feature_group_9f0ecbee068989eff7df2afd7b33bf6c.addTo(map_bb5db55c3e433184dc50a9af9488c8da);
         
     
-            var feature_group_8b15197e5e3a342f24187cd10ab54f53 = L.featureGroup(
+            var feature_group_f870d29e0fb3711a1d72c9a6805eae36 = L.featureGroup(
                 {
 }
             );
         
     
-            feature_group_8b15197e5e3a342f24187cd10ab54f53.addTo(map_d0a23bd503b02b85e85f90812bf22d39);
+            feature_group_f870d29e0fb3711a1d72c9a6805eae36.addTo(map_bb5db55c3e433184dc50a9af9488c8da);
         
     
-            var feature_group_9749c160b1a7e75198b27b9e60231a9f = L.featureGroup(
+            var feature_group_2c87d0bf4cd8abc4aae9cd9fc2afb186 = L.featureGroup(
                 {
 }
             );
         
     
-            feature_group_9749c160b1a7e75198b27b9e60231a9f.addTo(map_d0a23bd503b02b85e85f90812bf22d39);
+            feature_group_2c87d0bf4cd8abc4aae9cd9fc2afb186.addTo(map_bb5db55c3e433184dc50a9af9488c8da);
         
     
-            var feature_group_5483ef3189b9651b48558d2228f8e7ea = L.featureGroup(
+            var feature_group_6832cb63b6c73c250cb0eabfa4faecd5 = L.featureGroup(
                 {
 }
             );
         
     
-            feature_group_5483ef3189b9651b48558d2228f8e7ea.addTo(map_d0a23bd503b02b85e85f90812bf22d39);
+            feature_group_6832cb63b6c73c250cb0eabfa4faecd5.addTo(map_bb5db55c3e433184dc50a9af9488c8da);
         
     
-            var feature_group_139803a9bb48a447d22dfc4f4689f51e = L.featureGroup(
+            var feature_group_e6aa1ab8cc04288875c2a9642c66b0aa = L.featureGroup(
                 {
 }
             );
         
     
-            feature_group_139803a9bb48a447d22dfc4f4689f51e.addTo(map_d0a23bd503b02b85e85f90812bf22d39);
+            feature_group_e6aa1ab8cc04288875c2a9642c66b0aa.addTo(map_bb5db55c3e433184dc50a9af9488c8da);
         
     
-            var feature_group_cb4dae91c8e71354abf2e59d0676f6b7 = L.featureGroup(
+            var feature_group_8426d5da0e6ab1dcbd30025ceb04af9f = L.featureGroup(
                 {
 }
             );
         
     
-            feature_group_cb4dae91c8e71354abf2e59d0676f6b7.addTo(map_d0a23bd503b02b85e85f90812bf22d39);
+            feature_group_8426d5da0e6ab1dcbd30025ceb04af9f.addTo(map_bb5db55c3e433184dc50a9af9488c8da);
         
     
-            var feature_group_2fa63b32c61d22e0f61d277f011b7273 = L.featureGroup(
+            var feature_group_4dce23982ba7907934dd4b786d2d58be = L.featureGroup(
                 {
 }
             );
         
     
-            feature_group_2fa63b32c61d22e0f61d277f011b7273.addTo(map_d0a23bd503b02b85e85f90812bf22d39);
+            feature_group_4dce23982ba7907934dd4b786d2d58be.addTo(map_bb5db55c3e433184dc50a9af9488c8da);
         
     
-            var feature_group_022284e2fd2e172000fcf34dc6520ff5 = L.featureGroup(
+            var feature_group_ed12ebf3dea15cb0f39931986348031c = L.featureGroup(
                 {
 }
             );
         
     
-            feature_group_022284e2fd2e172000fcf34dc6520ff5.addTo(map_d0a23bd503b02b85e85f90812bf22d39);
+            feature_group_ed12ebf3dea15cb0f39931986348031c.addTo(map_bb5db55c3e433184dc50a9af9488c8da);
         
     
-            var feature_group_5a6a37b7a97da945a1acdccfef258798 = L.featureGroup(
+            var feature_group_dadaa8196de332c18785307b614ff2e5 = L.featureGroup(
                 {
 }
             );
         
     
-            feature_group_5a6a37b7a97da945a1acdccfef258798.addTo(map_d0a23bd503b02b85e85f90812bf22d39);
+            feature_group_dadaa8196de332c18785307b614ff2e5.addTo(map_bb5db55c3e433184dc50a9af9488c8da);
         
     
-            var feature_group_2ecb064908496ae7fd399148331c7da7 = L.featureGroup(
+            var feature_group_bbbef5cd76e2f998fba7373112e255d6 = L.featureGroup(
                 {
 }
             );
         
     
-            feature_group_2ecb064908496ae7fd399148331c7da7.addTo(map_d0a23bd503b02b85e85f90812bf22d39);
+            feature_group_bbbef5cd76e2f998fba7373112e255d6.addTo(map_bb5db55c3e433184dc50a9af9488c8da);
         
     
-            var feature_group_a16763954850c0ecf9837f44ef5fe075 = L.featureGroup(
+            var feature_group_b5fcf0d1c286fe33ac7ee8b044a2cf0f = L.featureGroup(
                 {
 }
             );
         
     
-            feature_group_a16763954850c0ecf9837f44ef5fe075.addTo(map_d0a23bd503b02b85e85f90812bf22d39);
+            feature_group_b5fcf0d1c286fe33ac7ee8b044a2cf0f.addTo(map_bb5db55c3e433184dc50a9af9488c8da);
         
     
-            var feature_group_229be2dbb43d31246ed449a676052055 = L.featureGroup(
+            var feature_group_52f0dc5556be99c5d109db8b91f66c07 = L.featureGroup(
                 {
 }
             );
         
     
-            feature_group_229be2dbb43d31246ed449a676052055.addTo(map_d0a23bd503b02b85e85f90812bf22d39);
+            feature_group_52f0dc5556be99c5d109db8b91f66c07.addTo(map_bb5db55c3e433184dc50a9af9488c8da);
         
     
-            var feature_group_5bd4f2d34599058beff5e0d264e5c8bd = L.featureGroup(
+            var feature_group_88dc993dcd4ee3979f3e3d4b2c83dde9 = L.featureGroup(
                 {
 }
             );
         
     
-            feature_group_5bd4f2d34599058beff5e0d264e5c8bd.addTo(map_d0a23bd503b02b85e85f90812bf22d39);
+            feature_group_88dc993dcd4ee3979f3e3d4b2c83dde9.addTo(map_bb5db55c3e433184dc50a9af9488c8da);
         
     
-            var feature_group_5c0a95699d56c40774630eef1aaa8ca9 = L.featureGroup(
+            var feature_group_bbdd58c3c27e2bcb89bed5e42e101678 = L.featureGroup(
                 {
 }
             );
         
     
-            feature_group_5c0a95699d56c40774630eef1aaa8ca9.addTo(map_d0a23bd503b02b85e85f90812bf22d39);
+            feature_group_bbdd58c3c27e2bcb89bed5e42e101678.addTo(map_bb5db55c3e433184dc50a9af9488c8da);
         
     
-            var feature_group_4e425dcfe5e26f3afc920d5565e30aba = L.featureGroup(
+            var feature_group_ea6becd4648ed07ebff104bbdedb57ff = L.featureGroup(
                 {
 }
             );
         
     
-            feature_group_4e425dcfe5e26f3afc920d5565e30aba.addTo(map_d0a23bd503b02b85e85f90812bf22d39);
+            feature_group_ea6becd4648ed07ebff104bbdedb57ff.addTo(map_bb5db55c3e433184dc50a9af9488c8da);
         
     
-            var feature_group_20c3b01596fda96761eac0ff7abae18f = L.featureGroup(
+            var feature_group_fdb56c3e99553ef28db4557daed13a93 = L.featureGroup(
                 {
 }
             );
         
     
-            feature_group_20c3b01596fda96761eac0ff7abae18f.addTo(map_d0a23bd503b02b85e85f90812bf22d39);
+            feature_group_fdb56c3e99553ef28db4557daed13a93.addTo(map_bb5db55c3e433184dc50a9af9488c8da);
         
     
-            var feature_group_a2c233ff092da3078284f2ced872c8f7 = L.featureGroup(
+            var feature_group_e6cdee7a30741bf37dcc4fe492d68694 = L.featureGroup(
                 {
 }
             );
         
     
-            feature_group_a2c233ff092da3078284f2ced872c8f7.addTo(map_d0a23bd503b02b85e85f90812bf22d39);
+            feature_group_e6cdee7a30741bf37dcc4fe492d68694.addTo(map_bb5db55c3e433184dc50a9af9488c8da);
         
     
-            var feature_group_7229c672c2f5684ec99dfdecd93bd37e = L.featureGroup(
+            var feature_group_4ec59f50720e6c42bc5f427d88db52c7 = L.featureGroup(
                 {
 }
             );
         
     
-            feature_group_7229c672c2f5684ec99dfdecd93bd37e.addTo(map_d0a23bd503b02b85e85f90812bf22d39);
+            feature_group_4ec59f50720e6c42bc5f427d88db52c7.addTo(map_bb5db55c3e433184dc50a9af9488c8da);
         
     
-            var feature_group_7541cb63cbb8d2293f7f5e251de41dc3 = L.featureGroup(
+            var feature_group_b0992100c7626fba868a625e7bb0cc50 = L.featureGroup(
                 {
 }
             );
         
     
-            feature_group_7541cb63cbb8d2293f7f5e251de41dc3.addTo(map_d0a23bd503b02b85e85f90812bf22d39);
+            feature_group_b0992100c7626fba868a625e7bb0cc50.addTo(map_bb5db55c3e433184dc50a9af9488c8da);
         
     
-            var feature_group_7bdecee9380108ab3e841ebc9fedf10f = L.featureGroup(
+            var feature_group_937332834dd53eb31926544f6a2edc38 = L.featureGroup(
                 {
 }
             );
         
     
-            feature_group_7bdecee9380108ab3e841ebc9fedf10f.addTo(map_d0a23bd503b02b85e85f90812bf22d39);
+            feature_group_937332834dd53eb31926544f6a2edc38.addTo(map_bb5db55c3e433184dc50a9af9488c8da);
         
     
-            var feature_group_2eb43c2147d2384c754f6a0101b4cbed = L.featureGroup(
+            var feature_group_afc9fec643dc39560dc91e23192165eb = L.featureGroup(
                 {
 }
             );
         
     
-            feature_group_2eb43c2147d2384c754f6a0101b4cbed.addTo(map_d0a23bd503b02b85e85f90812bf22d39);
+            feature_group_afc9fec643dc39560dc91e23192165eb.addTo(map_bb5db55c3e433184dc50a9af9488c8da);
         
     
-            var feature_group_02f8e6e16d93099cdbe3d341a7f1820d = L.featureGroup(
+            var feature_group_dc69314854b140eb88c599f9d8927f41 = L.featureGroup(
                 {
 }
             );
         
     
-            feature_group_02f8e6e16d93099cdbe3d341a7f1820d.addTo(map_d0a23bd503b02b85e85f90812bf22d39);
+            feature_group_dc69314854b140eb88c599f9d8927f41.addTo(map_bb5db55c3e433184dc50a9af9488c8da);
         
     
-            var layer_control_4345a37aa59dad6a12b45b4e4f6d22d1_layers = {
+            var layer_control_e61ccf8a51f602e94cfedd0923b0dc6c_layers = {
                 base_layers : {
-                    "OSM\uff08\u82f1\u6587\u5099\u63f4\uff09" : tile_layer_87b39856e0dd6417a59237a98eeb0c29,
-                    "\u9ad8\u5fb7\uff08\u4e2d\u6587\uff09" : tile_layer_798c7dfdd8f4f06c70f6a6a97d9e9b5f,
-                    "Google \u885b\u661f" : tile_layer_75aec43f6060332719494246f0046fc9,
-                    "Google \u6df7\u5408\uff08\u4e2d\u6587\uff09" : tile_layer_affd00834fb17940f56a091f613db83f,
+                    "OSM\uff08\u82f1\u6587\u5099\u63f4\uff09" : tile_layer_4e5b5a5e0a9798ae82007f566fcaffcb,
+                    "\u9ad8\u5fb7\uff08\u4e2d\u6587\uff09" : tile_layer_b35e4469e17b6ed97af7778adf28b248,
+                    "Google \u885b\u661f" : tile_layer_95b7e4d28c8469929cc4d1d1f2706b49,
+                    "Google \u6df7\u5408\uff08\u4e2d\u6587\uff09" : tile_layer_d302bb9eb02a985532b5f0e3c97b3dfc,
                 },
                 overlays :  {
                 },
             };
-            let layer_control_4345a37aa59dad6a12b45b4e4f6d22d1 = L.control.layers(
-                layer_control_4345a37aa59dad6a12b45b4e4f6d22d1_layers.base_layers,
-                layer_control_4345a37aa59dad6a12b45b4e4f6d22d1_layers.overlays,
+            let layer_control_e61ccf8a51f602e94cfedd0923b0dc6c = L.control.layers(
+                layer_control_e61ccf8a51f602e94cfedd0923b0dc6c_layers.base_layers,
+                layer_control_e61ccf8a51f602e94cfedd0923b0dc6c_layers.overlays,
                 {
   "position": "topright",
   "collapsed": true,
   "autoZIndex": true,
 }
-            ).addTo(map_d0a23bd503b02b85e85f90812bf22d39);
+            ).addTo(map_bb5db55c3e433184dc50a9af9488c8da);
 
         
 </script>
