@@ -1,4 +1,25 @@
 <!doctype html><html lang="zh-Hant">
 <head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>NOTAM MAP</title><style>html,body,iframe{margin:0;height:100%;width:100%;border:0}</style></head>
-<body><iframe src="notam_map.html" loading="eager" referrerpolicy="no-referrer"></iframe></body></html>
+<title>NOTAM MAP</title>
+<style>
+  html,body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;background:#0b0b0b;color:#fff}
+  .wrap{max-width:1000px;margin:8vh auto;padding:0 20px;text-align:center}
+  .grid{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));margin-top:24px}
+  a.card{display:block;padding:22px 20px;border-radius:14px;background:#171717;border:1px solid #2a2a2a;color:#fff;text-decoration:none}
+  a.card:hover{border-color:#3d7bfd;box-shadow:0 8px 28px rgba(61,123,253,.18)}
+  .hint{opacity:.75;font-size:12px;margin-top:6px}
+  .iframe{height:72vh;border:0;border-radius:14px;overflow:hidden;margin-top:18px;width:100%}
+  .note{opacity:.8;font-size:13px;margin-top:18px}
+  .btn{display:inline-block;padding:10px 16px;background:#3d7bfd;color:#fff;border-radius:8px;text-decoration:none}
+</style></head>
+<body>
+  <div class="wrap">
+    <h1>NOTAM 地圖</h1>
+    <div class="grid">
+      <a class="card" href="notam_map.html">2D 互動地圖<br><span class="hint">Folium / Leaflet</span></a>
+      <a class="card" href="notam_globe.html">3D 球體地圖<br><span class="hint">Cesium</span></a>
+    </div>
+    <iframe class="iframe" src="notam_map.html" loading="eager" referrerpolicy="no-referrer"></iframe>
+    <div class="note">若 3D 球體載入較慢，可直接開啟上方「3D 球體地圖」連結。</div>
+  </div>
+</body></html>
